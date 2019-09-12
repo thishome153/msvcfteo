@@ -1,0 +1,16 @@
+urn://x-artefacts-rosreestr-ru/commons/simple-types/1.0=Simple1;
+urn://x-artefacts-rosreestr-ru/commons/simple-types/2.0.1=Simple2;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/certification-doc/1.0=Cer1;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/address-output/3.0.1=adrOut3;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/numbers/1.0=Num1;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/cadastral-cost/1.0=Cos1;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/natural-objects/1.0.1=NatObj1;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/document-output/3.0.1=DocOut3;
+urn://x-artefacts-rosreestr-ru/commons/directories/unit/1.0.1=dUn1;
+urn://x-artefacts-rosreestr-ru/commons/directories/categories/1.0.1=dCateg1;
+urn://x-artefacts-rosreestr-ru/commons/directories/utilizations/1.0.1=dUtz1;
+urn://x-artefacts-rosreestr-ru/commons/directories/states/1.0.1=dStat1;
+urn://x-artefacts-rosreestr-ru/commons/directories/rights/1.0.1=dRi1;
+urn://x-artefacts-rosreestr-ru/commons/directories/encumbrances/2.0.1=dEn2;
+urn://x-artefacts-rosreestr-ru/commons/directories/parcels/1.0.1=dParc1;
+urn://x-artefacts-rosreestr-ru/commons/complex-types/entity-spatial/2.0.1=Spa2;

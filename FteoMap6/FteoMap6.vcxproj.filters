@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Sources_Fixosoft">
+      <UniqueIdentifier>{6469998f-40c2-4a22-9b98-2cd5e4159094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Forms">
+      <UniqueIdentifier>{03e0ad04-88b7-43bb-be92-a1fe647b907b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schemes">
+      <UniqueIdentifier>{e9a6b63f-8e77-462f-b08f-4f75db2f7e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schemes\KVZU">
+      <UniqueIdentifier>{5c702cc3-8c2f-4c87-bb2d-09f08dd55464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schemes\KVZU\SchemaCommon">
+      <UniqueIdentifier>{bb29085a-0fe5-4f1d-bbc4-07735df2658d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schemes\SchemaCommonSMEV">
+      <UniqueIdentifier>{2fc60020-4fdd-483f-87f6-6438b2b26cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataSources">
+      <UniqueIdentifier>{f0a87c7d-16d0-4664-a125-b916d4e3ce2e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\CadWorks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ContourEditorForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_dxf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_writer_ascii.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\include\fteo_core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_cpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_geo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_io.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_mif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OporaForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AppCfg.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientUtils.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\NETWrappers.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="wzCadworkEditor.cpp">
+      <Filter>Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\fteoNET\CLR_baseClasses.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AppCfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ClientUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_cpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\NETWrappers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContourEditorForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="FS2_About.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="MainForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="OporaForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="wzCadworkEditor.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="wzPointFrm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Polygon.h">
+      <Filter>Schemes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_mif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\win32++_fteo\esviewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\fteoNET\CLR_baseClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Schemes\KVZU\KVZU_06_mapping.txt">
+      <Filter>Schemes\KVZU</Filter>
+    </Text>
+    <Text Include="ReadMe_FTEOMap6.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\C#\netFteo\netFteo\Schemes\Polygon.xsd">
+      <Filter>Schemes</Filter>
+    </None>
+  </ItemGroup>
+</Project>

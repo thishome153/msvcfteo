@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="FteoMap6"
+	ProjectGUID="{3355D153-C120-4C96-84ED-DEA29B17F84C}"
+	RootNamespace="FteoDBForms"
+	Keyword="ManagedCProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="C:\Program Files\Fixosoft\fteo\msvc"
+			IntermediateDirectory="C:\Program Files\Fixosoft\fteo\msvc\fteo.tmp"
+			ConfigurationType="1"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)\FteoMap6\include&quot;;&quot;$(SolutionDir)\..\Fixosoft SDK&quot;;&quot;$(SolutionDir)\..\Fixosoft SDK\cpl&quot;;&quot;$(SolutionDir)\..\Fixosoft SDK\fteo_win32&quot;;&quot;$(SolutionDir)\..\Fixosoft SDK\dxflib&quot;;&quot;$(SolutionDir)\..\Firebird\ibpp\core&quot;;$(NOINHERIT)"
+				PreprocessorDefinitions="IBPP_WINDOWS; DISABLE_CVSID; WIN32"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="fbclient_ms.lib comctl32.lib"
+				Version="300.300.200.100"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)\..\mitab-vc9\lib\Debug&quot;;&quot;$(SolutionDir)\..\Firebird\lib&quot;"
+				GenerateDebugInformation="true"
+				AssemblyDebug="1"
+				SubSystem="2"
+				EntryPointSymbol="main"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="C:\Program Files\Fixosoft\fteo\msvc"
+			IntermediateDirectory="C:\Program Files\Fixosoft\fteo\msvc\$(ConfigurationName)"
+			ConfigurationType="1"
+			CharacterSet="1"
+			ManagedExtensions="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)\FteoMap6\include&quot;;&quot;$(SolutionDir)\..\..\Fixosoft SDK&quot;;&quot;$(SolutionDir)\..\Firebird\ibpp\core&quot;"
+				PreprocessorDefinitions="IBPP_WINDOWS"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="fbclient_ms.lib"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="$(SolutionDir)\..\Firebird\lib"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				EntryPointSymbol="main"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+		<AssemblyReference
+			RelativePath="System.dll"
+			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
+		<AssemblyReference
+			RelativePath="System.Data.dll"
+			AssemblyName="System.Data, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86"
+			MinFrameworkVersion="131072"
+		/>
+		<AssemblyReference
+			RelativePath="System.Drawing.dll"
+			AssemblyName="System.Drawing, Version=2.0.0.0, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
+		<AssemblyReference
+			RelativePath="System.Windows.Forms.dll"
+			AssemblyName="System.Windows.Forms, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
+		<AssemblyReference
+			RelativePath="System.XML.dll"
+			AssemblyName="System.Xml, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
+		<AssemblyReference
+			RelativePath="..\..\..\C#\netFteo\netFteo3.5\bin\Release\netFteo.dll"
+			AssemblyName="netFteo, Version=1.3.5.13, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath=".\MainSource.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
+			<File
+				RelativePath=".\include\AppCfg.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\include\baseClasses.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\ClientUtils.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\esviewer.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\include\Geodethics.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Firebird\ibpp\core\ibpp.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\include\IO.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\include\miFiles.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\MyStatusBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
+			<File
+				RelativePath=".\app.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\app.rc"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="ibpp"
+			>
+			<File
+				RelativePath="..\..\Firebird\ibpp\core\ibppClasses.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Sources_Fixosoft"
+			>
+			<File
+				RelativePath=".\src\AppCfg.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\src\baseClasses.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\src\CadWorks.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\ClientUtils.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteoNET\CLR_baseClasses.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\src\Geodethics.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\src\IO.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\src\miFiles.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo\src\NETWrappers.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Forms"
+			>
+			<File
+				RelativePath=".\ContourEditorForm.h"
+				FileType="3"
+				>
+				<File
+					RelativePath=".\ContourEditorForm.resx"
+					SubType="Designer"
+					>
+				</File>
+			</File>
+			<File
+				RelativePath=".\FS2_About.h"
+				FileType="3"
+				>
+				<File
+					RelativePath=".\FS2_About.resx"
+					SubType="Designer"
+					>
+				</File>
+			</File>
+			<File
+				RelativePath=".\MainForm.h"
+				FileType="3"
+				>
+				<File
+					RelativePath=".\MainForm.resx"
+					SubType="Designer"
+					>
+				</File>
+			</File>
+			<File
+				RelativePath=".\OporaForm.h"
+				FileType="3"
+				>
+				<File
+					RelativePath=".\OporaForm.resx"
+					SubType="Designer"
+					>
+				</File>
+			</File>
+			<File
+				RelativePath=".\OptionsForm.h"
+				FileType="3"
+				>
+				<File
+					RelativePath=".\OptionsForm.resx"
+					SubType="Designer"
+					>
+				</File>
+			</File>
+			<File
+				RelativePath=".\wzPointFrm.h"
+				FileType="3"
+				>
+				<File
+					RelativePath=".\wzPointFrm.resx"
+					SubType="Designer"
+					>
+				</File>
+			</File>
+		</Filter>
+		<Filter
+			Name="OGR"
+			>
+		</Filter>
+		<Filter
+			Name="CPL- Common Portability Library"
+			>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_conv.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_conv.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_dir.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_error.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_multiproc.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_path.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_string.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_vsi_mem.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_vsil.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_vsil_win32.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\cpl\cpl_vsisimple.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="dxflib"
+			>
+			<File
+				RelativePath="..\..\Fixosoft SDK\dxflib\dl_dxf.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\dxflib\dl_writer_ascii.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="win32"
+			>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\esviewer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\MyStatusBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_appcore.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_appcore0.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_archive.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_cstring.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_ddx.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_exception.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_file.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_gdi.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_imagelist.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_menu.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_rect.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_resource.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_shared_ptr.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_textconv.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_themes.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_wincore.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Fixosoft SDK\fteo_win32\wxx_wincore0.h"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath=".\ReadMe_FTEOMap6.txt"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

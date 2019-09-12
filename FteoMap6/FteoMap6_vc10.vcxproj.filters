@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ibpp">
+      <UniqueIdentifier>{dd981525-abe9-49dc-b834-9cf7089cb951}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources_Fixosoft">
+      <UniqueIdentifier>{5de2d678-de6b-43ac-8815-878d40d9b56a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Forms">
+      <UniqueIdentifier>{5787faf2-7b19-4b70-a178-11cf5a3a9447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OGR">
+      <UniqueIdentifier>{82504695-eaba-43da-bcf9-d33d20626593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CPL- Common Portability Library">
+      <UniqueIdentifier>{11764c5a-1643-4962-bcb5-93ca07b3c843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dxflib">
+      <UniqueIdentifier>{f600b4da-00f9-4b5d-964d-303bc8135fa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{01432027-3f5f-4527-8388-915d54e94a41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Firebird\ibpp\core\ibppClasses.cpp">
+      <Filter>ibpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AppCfg.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\baseClasses.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\CadWorks.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientUtils.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteoNET\CLR_baseClasses.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\Geodethics.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\IO.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\miFiles.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\NETWrappers.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_conv.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_dir.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_error.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_multiproc.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_path.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_string.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsi_mem.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsil.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsil_win32.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsisimple.cpp">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_dxf.cpp">
+      <Filter>dxflib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_writer_ascii.cpp">
+      <Filter>dxflib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo_win32\esviewer.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft SDK\fteo_win32\MyStatusBar.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AppCfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\baseClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ClientUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\esviewer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\Geodethics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Firebird\ibpp\core\ibpp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\IO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\miFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\MyStatusBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContourEditorForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="FS2_About.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="MainForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="OporaForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsForm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="wzPointFrm.h">
+      <Filter>Forms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\cpl\cpl_conv.h">
+      <Filter>CPL- Common Portability Library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_appcore.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_appcore0.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_archive.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_cstring.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_ddx.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_exception.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_file.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_gdi.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_imagelist.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_menu.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_rect.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_resource.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_shared_ptr.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_textconv.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_themes.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_wincore.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_wincore0.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe_FTEOMap6.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>FteoMap6_vc120</ProjectName>
+    <ProjectGuid>{3355D153-C120-4C96-84ED-DEA29B17F84C}</ProjectGuid>
+    <RootNamespace>FteoDBForms</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>C:\Program Files\Fixosoft\fteo\msvc\</OutDir>
+    <IntDir>C:\Program Files\Fixosoft\fteo\msvc\fteo.tmp\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>C:\Program Files\Fixosoft\fteo\msvc\</OutDir>
+    <IntDir>C:\Program Files\Fixosoft\fteo\msvc\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)\FteoMap6\include;$(SolutionDir)\..\Fixosoft SDK;$(SolutionDir)\..\Fixosoft SDK\cpl;$(SolutionDir)\..\Fixosoft SDK\fteo_win32;$(SolutionDir)\..\Fixosoft SDK\dxflib;$(SolutionDir)\..\Firebird\ibpp\core</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IBPP_WINDOWS;DISABLE_CVSID;WIN32;VC120;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>fbclient_ms.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>
+      </Version>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\mitab-vc9\lib\Debug;$(SolutionDir)\..\Firebird\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AssemblyDebug>true</AssemblyDebug>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)\FteoMap6\include;$(SolutionDir)\..\..\Fixosoft SDK;$(SolutionDir)\..\Firebird\ibpp\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IBPP_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>fbclient_ms.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\Firebird\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="netFteo">
+      <HintPath>..\..\..\c#\netFteo\netFteo3.5\bin\Debug\netFteo.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Firebird\ibpp\core\ibppClasses.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_conv.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_dir.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_error.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_multiproc.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_path.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_string.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsil.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsil_win32.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsisimple.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\cpl\cpl_vsi_mem.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_dxf.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_writer_ascii.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteoNET\CLR_baseClasses.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\baseClasses.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\CadWorks.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_io.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_mif.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\Geodethics.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\NETWrappers.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo_win32\esviewer.cpp" />
+    <ClCompile Include="..\..\Fixosoft SDK\fteo_win32\MyStatusBar.cpp" />
+    <ClCompile Include="MainSource.cpp" />
+    <ClCompile Include="src\AppCfg.cpp" />
+    <ClCompile Include="src\ClientUtils.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Firebird\ibpp\core\ibpp.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\cpl\cpl_conv.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\baseClasses.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\CadWorks.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_io.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_mif.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\Geodethics.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\NETWrappers.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\esviewer.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\MyStatusBar.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_appcore.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_appcore0.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_archive.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_cstring.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_ddx.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_exception.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_file.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_gdi.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_imagelist.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_menu.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_rect.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_resource.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_shared_ptr.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_textconv.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_themes.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_wincore.h" />
+    <ClInclude Include="..\..\Fixosoft SDK\fteo_win32\wxx_wincore0.h" />
+    <ClInclude Include="ContourEditorForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FS2_About.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="include\AppCfg.h" />
+    <ClInclude Include="include\ClientUtils.h" />
+    <ClInclude Include="MainForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="OporaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="OptionsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="wzPointFrm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe_FTEOMap6.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ContourEditorForm.resx">
+      <DependentUpon>ContourEditorForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FS2_About.resx">
+      <DependentUpon>FS2_About.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OporaForm.resx">
+      <DependentUpon>OporaForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wzPointFrm.resx">
+      <DependentUpon>wzPointFrm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
