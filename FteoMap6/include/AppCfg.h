@@ -17,69 +17,69 @@ namespace fteo
 #define TEST_FTEO_VM_DESIGNER "C:\\Designer.Local\\Databases$.local\\FTEO.GDB" //Видиишь двойные слэши ?
 
 
- typedef void*  Firebird_HANDLE;
- 
- 
-
-//====================================================================
-//	
-//
-//
-//
+	typedef void* Firebird_HANDLE;
 
 
-//====================================================================
-//	
-//
-//
-//// Native class TConfig
-public  class TConfig
-{
-public:	
-	char *FteoVersion;
-     Firebird_HANDLE dbHandle;
-	 char *dbname;
-	 char *username;
-	 char *upassword;
-	 int  item_id;   // id текущей записи
-	 char *serverIp;
-     int Mt_common;  // Общая точность для точек
-     int Mt_SKPT;    // Точность для точек СКПТ
-     int Innccuracy; //Общая точность для Площади
-};
 
-// CLR Wrapper for TConfig
-public ref	class TAppOptions
+	//====================================================================
+	//	
+	//
+	//
+	//
+
+
+	//====================================================================
+	//	
+	//
+	//
+	//// Native class TConfig
+	public  class TConfig
 	{
-public:
-     TConfig *API;     
-	 void SetServer(System::String^ _Value);
-	 void SetServer(char *_Value);
-	 void SetUserName(System::String^ _Value);
-	 void SetUserName(char *_Value);
-	 void SetDBName(System::String^ _Value);
-	 void SetDBName(char *_Value);
-               char* GetUserName();
-	 System::String^ GetUserNameW();
-     System::String^ GetUserPwrdW();
-	 System::String^ GetDBNameW();
-     System::String^ GetServerW();
-	 bool WriteINI();
-	 bool ReadINI();
-	 	// Allocate the native object on the C++ Heap via a constructor
-	 TAppOptions();
-	 ~TAppOptions();
+	public:
+		char* FteoVersion;
+		Firebird_HANDLE dbHandle;
+		char* dbname;
+		char* username;
+		char* upassword;
+		int  item_id;   // id текущей записи
+		char* serverIp;
+		int Mt_common;  // Общая точность для точек
+		int Mt_SKPT;    // Точность для точек СКПТ
+		int Innccuracy; //Общая точность для Площади
 	};
 
-//====================================================================
-//	
-//
-//
-//
-extern int MyPublicInteger;
-//netFteo::BaseClasess::
+	// CLR Wrapper for TConfig
+	public ref	class TAppOptions
+	{
+	public:
+		TConfig* API;
+		void SetServer(System::String^ _Value);
+		void SetServer(char* _Value);
+		void SetUserName(System::String^ _Value);
+		void SetUserName(char* _Value);
+		void SetDBName(System::String^ _Value);
+		void SetDBName(char* _Value);
+		char* GetUserName();
+		System::String^ GetUserNameW();
+		System::String^ GetUserPwrdW();
+		System::String^ GetDBNameW();
+		System::String^ GetServerW();
+		bool WriteINI();
+		bool ReadINI();
+		// Allocate the native object on the C++ Heap via a constructor
+		TAppOptions();
+		~TAppOptions();
+	};
 
-   
+	//====================================================================
+	//	
+	//
+	//
+	//
+	extern int MyPublicInteger;
+	//netFteo::BaseClasess::
+
+
 }
 
 
