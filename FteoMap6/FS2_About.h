@@ -61,7 +61,7 @@ namespace FteoDBForms {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FS2_About::typeid));
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(FS2_About::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -77,9 +77,10 @@ namespace FteoDBForms {
 			this->label1->ForeColor = System::Drawing::Color::DarkGreen;
 			this->label1->Location = System::Drawing::Point(0, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(447, 256);
+			this->label1->Size = System::Drawing::Size(514, 308);
 			this->label1->TabIndex = 0;
 			this->label1->Text = resources->GetString(L"label1.Text");
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->label1->Click += gcnew System::EventHandler(this, &FS2_About::label1_Click);
 			// 
 			// button1
@@ -88,9 +89,9 @@ namespace FteoDBForms {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(157, 265);
+			this->button1->Location = System::Drawing::Point(214, 326);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(150, 48);
+			this->button1->Size = System::Drawing::Size(150, 57);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"ok";
 			this->button1->UseVisualStyleBackColor = false;
@@ -99,7 +100,7 @@ namespace FteoDBForms {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 259);
+			this->pictureBox1->Location = System::Drawing::Point(22, 326);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(44, 54);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -110,7 +111,7 @@ namespace FteoDBForms {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(447, 334);
+			this->ClientSize = System::Drawing::Size(514, 431);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);

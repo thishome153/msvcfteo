@@ -123,15 +123,12 @@
 IDE: MSVS 2019 CE
 
 Требует статические библиотеки:
-fbclient_ms.lib
 comctl32.lib
-corefteo.lib
-ibpp.lib
-win32wrapper.lib
+ibpp.lib -  ibpp library
+fbclient_ms.lib   - firebird api
+win32wrapper.lib - win32++ wrapper
 
-Firebird 2.5 API {native C++} // SOCI 3.2.3 // ibpp
-Fixosoft SDK
-Приложение </value>
+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -71,13 +71,13 @@
     <_ProjectFileVersion>16.0.29124.152</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>C:\Program Files\Fixosoft\fteo\msvc\</OutDir>
+    <OutDir>C:\Program Files\Fixosoft\fteo\msvc\$(Configuration)\</OutDir>
     <IntDir>C:\Program Files\Fixosoft\fteo\msvc\tmp\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
-    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\Debug;$(Solutiondir)..\Firebird-ibpp\lib;$(Solutiondir)..\Fixosoft SDK\lib\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\Debug;$(Solutiondir)..\Firebird-ibpp\lib;$(Solutiondir)..\Fixosoft-SDK\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <IncludePath>include;$(SolutionDir)..\Fixosoft-SDK\cpl;$(SolutionDir)..\Fixosoft-SDK\dxflib;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\win32++;$(SolutionDir)..\Firebird-ibpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -214,17 +214,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_dxf.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_writer_ascii.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\fteoNET\CLR_baseClasses.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\include\fteo_core.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\CadWorks.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_base.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_cpl.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_geo.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_io.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_mif.cpp" />
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\NETWrappers.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_writer_ascii.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\CadWorks.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_base.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_cpl.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_geo.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_io.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_mif.cpp" />
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\NETWrappers.cpp" />
     <ClCompile Include="ContourEditorForm.cpp" />
     <ClCompile Include="MainSource.cpp" />
     <ClCompile Include="OporaForm.cpp" />
@@ -240,13 +240,13 @@
     <ClCompile Include="wzCadworkEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\fteoNET\CLR_baseClasses.h" />
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_core.h" />
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_cpl.h" />
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_io.h" />
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_mif.h" />
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\NETWrappers.h" />
-    <ClInclude Include="..\..\Fixosoft SDK\win32++_fteo\esviewer.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_cpl.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_io.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_mif.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\NETWrappers.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++_fteo\esviewer.h" />
     <ClInclude Include="ContourEditorForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -44,9 +44,6 @@
     <ClInclude Include="..\..\mitab_src\mitab-1.7.0\ogr\ogr_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\soci-3.2.3\core\soci.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Firebird-ibpp\include\ibpp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\soci\include\soci\soci.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -36,34 +36,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\CadWorks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ContourEditorForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_dxf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\dxflib\dl_writer_ascii.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_base.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\include\fteo_core.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_cpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_geo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_io.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\fteo_mif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainSource.cpp">
@@ -84,13 +57,40 @@
     <ClCompile Include="src\ClientUtils.cpp">
       <Filter>Sources_Fixosoft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\src\NETWrappers.cpp">
-      <Filter>Sources_Fixosoft</Filter>
-    </ClCompile>
     <ClCompile Include="wzCadworkEditor.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Fixosoft SDK\fteo\fteoNET\CLR_baseClasses.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\CadWorks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_writer_ascii.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_cpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_geo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_io.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_mif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
+      <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\NETWrappers.cpp">
       <Filter>Sources_Fixosoft</Filter>
     </ClCompile>
   </ItemGroup>
@@ -99,15 +99,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ClientUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_cpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\NETWrappers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -140,16 +131,25 @@
     <ClInclude Include="include\Polygon.h">
       <Filter>Schemes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_mif.h">
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\include\fteo_io.h">
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++_fteo\esviewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\win32++_fteo\esviewer.h">
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft SDK\fteo\fteoNET\CLR_baseClasses.h">
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_cpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_mif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\NETWrappers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -173,5 +173,28 @@
     <None Include="..\..\..\C#\netFteo\netFteo\Schemes\Polygon.xsd">
       <Filter>Schemes</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ContourEditorForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FS2_About.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OporaForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wzCadworkEditor.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wzPointFrm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
