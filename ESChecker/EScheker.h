@@ -1,4 +1,4 @@
-#include "fteo_core.h"
+#include "fteo_core.h" // baseclasses here defined. Imports from corefteo.lib
 
 #ifdef DLL_BUILD
 #define DLL_EXPORTABLE __declspec(dllexport)

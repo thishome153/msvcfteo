@@ -361,7 +361,7 @@ namespace ESCheckerTester {
 	{
 		ClearControls();
 		//Это рабочий вариант 
-		LPCSTR fncName = "ESCheck";
+		LPCSTR ESCheckFuncName = "ESCheck";
 		LPCSTR fncName2 = "Func2";
 		LPCSTR fncName21 = "Func21";
 		typedef  fteo::api::TMyPoint* (WINAPI* LPfn_Function2)();
@@ -377,9 +377,11 @@ namespace ESCheckerTester {
 			LPfn_Function2               PSampleFunction2 = (LPfn_Function2)GetProcAddress(hMod_L, fncName2);
 
 
-			LPfn_PointerToFunction       PSampleFunction1 = (LPfn_PointerToFunction)GetProcAddress(hMod_L, fncName);
+			LPfn_PointerToFunction       PSampleFunction1 = (LPfn_PointerToFunction)GetProcAddress(hMod_L, ESCheckFuncName);
 			LPFunc21  func21 = (LPFunc21)GetProcAddress(hMod_L, fncName21);
 			fteo::api::TMyPoint *testPoint = func21(65535, "Моя точка в dll");
+			netFteo::Spatial::TPoint^ CLRPoint = gcnew netFteo::Spatial::TPoint();
+
 
 			if (PSampleFunction1 != NULL)
 			{

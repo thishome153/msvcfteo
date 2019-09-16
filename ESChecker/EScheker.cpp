@@ -23,6 +23,7 @@ SAMPLEDLL_EXPORTS extern "C"
      cppPoint->id = value_id;
 	 return cppPoint; // Заглушка
   }
+
  DLL_EXPORTABLE fteo::api::TMyPoint *Func21(int value_id, char* name) 
  {
      fteo::api::TMyPoint *cppPoint = new fteo::api::TMyPoint();
@@ -31,6 +32,7 @@ SAMPLEDLL_EXPORTS extern "C"
      cppPoint->id = value_id;
 	 return cppPoint; // Заглушка
  }
+
 
   DLL_EXPORTABLE void *CheckIntersect(fteo::api::TMyPoint A1)
   {
