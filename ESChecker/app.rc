@@ -3,6 +3,7 @@
 // http://www.resedit.net
 
 #include <windows.h>
+#include <winver.h>
 #include <commctrl.h>
 #include <richedit.h>
 #include "resource.h"
@@ -23,36 +24,79 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 //
 // Version Information resources
 //
+/*
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 1 VERSIONINFO
-    FILEVERSION     1,0,0,0
-    PRODUCTVERSION  1,0,0,0
-    FILEOS          VOS__WINDOWS32
-    FILETYPE        VFT_DLL
-    FILESUBTYPE     VFT2_UNKNOWN
-    FILEFLAGSMASK   0x00000000
-    FILEFLAGS       0x00000000
+FILEVERSION     1, 0, 0, 0
+PRODUCTVERSION  1, 0, 0, 0
+FILEOS          VOS__WINDOWS32
+FILETYPE        VFT_DLL
+FILESUBTYPE     VFT2_UNKNOWN
+FILEFLAGSMASK   0x00000000
+FILEFLAGS       0x00000000
 {
-    BLOCK "StringFileInfo"
-    {
-        BLOCK "04000362"
-        {
-            VALUE "Comments", "namespace fteo"
-            VALUE "CompanyName", "Fixosoft"
-            VALUE "FileDescription", "Entity Spatial Checker lib"
-            VALUE "FileVersion", "1.0.0.0"
-            VALUE "InternalName", "Entity Spatial Checker lib"
-            VALUE "LegalCopyright", "@2017 Fixosoft"
-            VALUE "LegalTrademarks", ""
-            VALUE "OriginalFilename", ""
-            VALUE "PrivateBuild", ""
-            VALUE "ProductName", "Fteo 6"
-            VALUE "ProductVersion", "6.0.0.0"
-            VALUE "SpecialBuild", ""
-        }
-    }
-    BLOCK "VarFileInfo"
-    {
-        VALUE "Translation", 0x0400, 0x0362
-    }
+	BLOCK "StringFileInfo"
+	{
+		BLOCK "04000362"
+		{
+			VALUE "Comments", "namespace fteo"
+				VALUE "CompanyName", "Fixosoft"
+				VALUE "FileDescription", "Entity Spatial Checker lib"
+				VALUE "FileVersion", "1.0.0.0"
+				VALUE "InternalName", "Entity Spatial Checker lib"
+				VALUE "LegalCopyright", "@2017 Fixosoft"
+				VALUE "LegalTrademarks", ""
+				VALUE "OriginalFilename", ""
+				VALUE "PrivateBuild", ""
+				VALUE "ProductName", "Fteo 6"
+				VALUE "ProductVersion", "6.0.0.0"
+				VALUE "SpecialBuild", ""
+		}
+	}
+	BLOCK "VarFileInfo"
+	{
+		VALUE "Translation", 0x0400, 0x0362
+	}
 }
+*/
+1 VERSIONINFO
+ FILEVERSION    1, 0, 0, 256
+ PRODUCTVERSION	1, 0, 0, 256
+
+FILETYPE        VFT_DLL
+//FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+FILEFLAGSMASK   0x00000000
+FILEFLAGS       0x00000000
+
+//version info FROM firebird rc
+//FILEFLAGSMASK   VS_FF_PRERELEASE
+//FILEFLAGS       VS_FF_PRERELEASE | VS_FF_SPECIALBUILD
+//PRODUCTVERSION  FILE_VER_NUMBER
+//FILEOS          VOS_NT_WINDOWS32
+FILEOS          VOS__WINDOWS32
+
+
+BEGIN
+BLOCK "StringFileInfo"
+BEGIN
+BLOCK "040904E4"
+BEGIN
+VALUE "Comments", "Sources: https://github.com/thishome153/msvcfteo \0"
+VALUE "CompanyName", "Fixosoft\0"
+VALUE "FileDescription", "Entity spatial operating library \0"
+//VALUE "FileVersion", "3.0.0.3 \0"
+VALUE "InternalName", "Entity Spatial Checker lib\0"
+VALUE "LegalCopyright", "serg.home153@gmail.com\0"
+VALUE "ProductName", "Fteo 6 \0"
+VALUE "ProductVersion", "6.0.0.1"
+VALUE "e-mail", "test@me.net"
+//VALUE "SpecialBuild", "1.0.0.1"
+END
+END
+
+BLOCK "VarFileInfo"
+BEGIN                               /*  Language   |    Translation       */
+VALUE "Translation", 0x409, 1252  /* U.S. English, Windows Multilingual */
+END
+END
