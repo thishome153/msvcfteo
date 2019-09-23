@@ -16,49 +16,7 @@
 //
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 1                  ICON           "fixosoft_2002_v5.ico"
-//1                  ICON           "..\\..\\..\\Shared  images\\Fixosoft\\FIXOSOft 2002  вариант 5.ico"
 
-
-
-
-//
-// Version Information resources
-//
-/*
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-1 VERSIONINFO
-FILEVERSION     1, 0, 0, 0
-PRODUCTVERSION  1, 0, 0, 0
-FILEOS          VOS__WINDOWS32
-FILETYPE        VFT_DLL
-FILESUBTYPE     VFT2_UNKNOWN
-FILEFLAGSMASK   0x00000000
-FILEFLAGS       0x00000000
-{
-	BLOCK "StringFileInfo"
-	{
-		BLOCK "04000362"
-		{
-			VALUE "Comments", "namespace fteo"
-				VALUE "CompanyName", "Fixosoft"
-				VALUE "FileDescription", "Entity Spatial Checker lib"
-				VALUE "FileVersion", "1.0.0.0"
-				VALUE "InternalName", "Entity Spatial Checker lib"
-				VALUE "LegalCopyright", "@2017 Fixosoft"
-				VALUE "LegalTrademarks", ""
-				VALUE "OriginalFilename", ""
-				VALUE "PrivateBuild", ""
-				VALUE "ProductName", "Fteo 6"
-				VALUE "ProductVersion", "6.0.0.0"
-				VALUE "SpecialBuild", ""
-		}
-	}
-	BLOCK "VarFileInfo"
-	{
-		VALUE "Translation", 0x0400, 0x0362
-	}
-}
-*/
 1 VERSIONINFO
  FILEVERSION    1, 0, 0, 256
  PRODUCTVERSION	1, 0, 0, 256

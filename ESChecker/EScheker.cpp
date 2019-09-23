@@ -18,6 +18,12 @@ SAMPLEDLL_EXPORTS extern "C"
 	  return 1975; // Заглушка
   }
 
+  DLL_EXPORTABLE int GetLibraryVersion()
+  {
+	 // void* vr =  FILEVERSION;
+	  return 100265;
+  }
+
   DLL_EXPORTABLE void *Func2(int value_id)
   {
      char *Test = "Here Pointer";
