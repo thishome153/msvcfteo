@@ -50,7 +50,7 @@ namespace ESCheckerTester {
 	public:
 		LPCWSTR SampleDLL;
 		LPCWSTR dllName_;
-	private: System::Windows::Forms::ToolStripMenuItem^  mPV06EditorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ mPV06EditorToolStripMenuItem;
 	public:
 		String^ dllName;
 		Form1(void)
@@ -74,34 +74,34 @@ namespace ESCheckerTester {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::MenuStrip^  menuStrip1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	protected:
-	private: System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ fileToolStripMenuItem;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  callLibraryToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
-	private: System::Windows::Forms::ListView^  listView1;
-	private: System::Windows::Forms::StatusStrip^  statusStrip1;
-	private: System::Windows::Forms::ToolStripStatusLabel^  Label_dllName;
+	private: System::Windows::Forms::ToolStripMenuItem^ callLibraryToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ helpToolStripMenuItem;
+	private: System::Windows::Forms::ListView^ listView1;
+	private: System::Windows::Forms::StatusStrip^ statusStrip1;
+	private: System::Windows::Forms::ToolStripStatusLabel^ Label_dllName;
 
-	private: System::Windows::Forms::ToolStripStatusLabel^  StatusLabel_dll_present;
+	private: System::Windows::Forms::ToolStripStatusLabel^ StatusLabel_dll_present;
 
-	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
-	private: System::Windows::Forms::ColumnHeader^  columnHeader2;
-	private: System::Windows::Forms::ToolStripMenuItem^  openChekingEntityToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  mifFileToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  toolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^  ÓœÓ„‡ÏÏÂToolStripMenuItem;
-	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
-	private: System::Windows::Forms::ToolStripMenuItem^  Ò·Ó˘ËÍ‘‡ÈÎÓ‚ToolStripMenuItem;
-	private: System::Data::DataSet^  dataSet1;
-	private: System::Windows::Forms::ToolStripDropDownButton^  toolStripDropDownButton1;
+	private: System::Windows::Forms::ColumnHeader^ columnHeader1;
+	private: System::Windows::Forms::ColumnHeader^ columnHeader2;
+	private: System::Windows::Forms::ToolStripMenuItem^ openChekingEntityToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ mifFileToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ÓœÓ„‡ÏÏÂToolStripMenuItem;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
+	private: System::Windows::Forms::ToolStripMenuItem^ Ò·Ó˘ËÍ‘‡ÈÎÓ‚ToolStripMenuItem;
+	private: System::Data::DataSet^ dataSet1;
+	private: System::Windows::Forms::ToolStripDropDownButton^ toolStripDropDownButton1;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -110,10 +110,10 @@ namespace ESCheckerTester {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::ListViewItem^  listViewItem4 = (gcnew System::Windows::Forms::ListViewItem(L""));
-			System::Windows::Forms::ListViewItem^  listViewItem5 = (gcnew System::Windows::Forms::ListViewItem(L""));
-			System::Windows::Forms::ListViewItem^  listViewItem6 = (gcnew System::Windows::Forms::ListViewItem(L""));
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
+			System::Windows::Forms::ListViewItem^ listViewItem4 = (gcnew System::Windows::Forms::ListViewItem(L""));
+			System::Windows::Forms::ListViewItem^ listViewItem5 = (gcnew System::Windows::Forms::ListViewItem(L""));
+			System::Windows::Forms::ListViewItem^ listViewItem6 = (gcnew System::Windows::Forms::ListViewItem(L""));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->callLibraryToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -329,7 +329,7 @@ namespace ESCheckerTester {
 		listView1->Items->Clear();
 	}
 
-	private: System::Void Form1_Shown(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void Form1_Shown(System::Object^ sender, System::EventArgs^ e) {
 
 		Label_dllName->Text = dllName;
 		if (System::IO::File::Exists(dllName))// "Dll_Project_Template.dll"))
@@ -364,8 +364,8 @@ namespace ESCheckerTester {
 		LPCSTR ESCheckFuncName = "ESCheck";
 		LPCSTR fncName2 = "Func2";
 		LPCSTR fncName21 = "Func21";
-		typedef  fteo::api::TMyPoint* (WINAPI* LPfn_Function2)();
-		typedef  fteo::api::TMyPoint* (*LPFunc21) (int value_id, char *name);	//ÕÓ‚˚È ÚËÔ - ÛÍ‡Á‡ÚÂÎ¸ Ì‡ ÙÛÌÍˆË˛	 
+		typedef  fteo::api::TMyPoint* (WINAPI * LPfn_Function2)();
+		typedef  fteo::api::TMyPoint* (*LPFunc21) (int value_id, char* name);	//ÕÓ‚˚È ÚËÔ - ÛÍ‡Á‡ÚÂÎ¸ Ì‡ ÙÛÌÍˆË˛	 
 
 		HMODULE hMod_L = LoadLibrary(this->dllName_);
 		// ¿ ‚ÓÚ Â˘Â Ó‰ËÌ, Ë ÚÓÊÂ ‡·Ó˜ËÈ:
@@ -379,8 +379,8 @@ namespace ESCheckerTester {
 
 			LPfn_PointerToFunction       PSampleFunction1 = (LPfn_PointerToFunction)GetProcAddress(hMod_L, ESCheckFuncName);
 			LPFunc21  func21 = (LPFunc21)GetProcAddress(hMod_L, fncName21);
-			fteo::api::TMyPoint *testPoint = func21(65535, "ÃÓˇ ÚÓ˜Í‡ ‚ dll");
-			netFteo::Spatial::TPoint^ CLRPoint = gcnew netFteo::Spatial::TPoint();
+			fteo::api::TMyPoint* testPoint = func21(65535, "ÃÓˇ ÚÓ˜Í‡ ‚ dll. Name & id send for library");
+
 
 
 			if (PSampleFunction1 != NULL)
@@ -400,6 +400,10 @@ namespace ESCheckerTester {
 
 			// netFteo::IO::TextWriter::SaveAsFixosoftTXT2015("Sample", nul);
 			// netFteo::BaseClasess::Geodethic::LinesIntersect();
+
+			//Test classes of NET libary:
+			netFteo::Spatial::TPoint^ CLRPoint = gcnew netFteo::Spatial::TPoint();
+			netFteo::Spatial::TEntitySpatial^ ES = gcnew netFteo::Spatial::TEntitySpatial();
 			FreeLibrary(hMod_L);
 
 		}
@@ -414,29 +418,29 @@ namespace ESCheckerTester {
 
 #pragma endregion
 
-	private: System::Void fileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) { this->Close(); }
+	private: System::Void fileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) { this->Close(); }
 
-	private: System::Void callLibraryToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void callLibraryToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
-	private: System::Void mifFileToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void mifFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenFile();
 	}
 
-	private: System::Void Ò·Ó˘ËÍ‘‡ÈÎÓ‚ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void Ò·Ó˘ËÍ‘‡ÈÎÓ‚ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		// FileCopierfrm^ ff = gcnew FileCopierfrm();
 		// ff->ShowDialog(this);
 	}
-	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void fileToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void fileToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-	private: System::Void toolStripMenuItem1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void toolStripMenuItem1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		callLibrary();
 	}
-	private: System::Void mPV06EditorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-		StartForm^  ff = gcnew StartForm();
+	private: System::Void mPV06EditorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		StartForm^ ff = gcnew StartForm();
 		ff->ShowDialog(this);
 
 	}
