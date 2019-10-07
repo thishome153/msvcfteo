@@ -134,9 +134,6 @@
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++_fteo\esviewer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -150,6 +147,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\NETWrappers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++\esviewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

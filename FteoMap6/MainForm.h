@@ -1023,10 +1023,16 @@ namespace FteoDBForms {
 	private: System::Void SignFile(String^ FileName)
 	{
 		cspUtils::CadesWrapper^ cw = gcnew cspUtils::CadesWrapper();
-		cw->Sign_2012(FileName, "subjectName");
+		cw->Sign_GOST_2012(FileName, "subjectName");
 	}
 
 	private: System::Void ToolStripButton_Sign_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Windows::Forms::OpenFileDialog^ dlg = gcnew System::Windows::Forms::OpenFileDialog();
+		dlg->Filter = "פאיכû|*.*";
+		if (dlg->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			SignFile(dlg->FileName);
+		}
 	}
 
 	private: System::Void SignFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -77,7 +77,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
-    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\Debug;$(Solutiondir)..\Firebird-ibpp\lib;$(Solutiondir)..\Fixosoft-SDK\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\lib;$(Solutiondir)..\Firebird-ibpp\$(Configuration)\Win32;$(Solutiondir)..\Fixosoft-SDK\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <IncludePath>include;$(SolutionDir)..\Fixosoft-SDK\cpl;$(SolutionDir)..\Fixosoft-SDK\dxflib;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\win32++;$(SolutionDir)..\Firebird-ibpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -186,11 +186,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Reference Include="cadesSharp">
-      <HintPath>C:\Temp\CSP\Debug\cadesSharp.dll</HintPath>
+    <Reference Include="cspWrapper">
+      <HintPath>..\..\..\c#\RRStudio\Builds\x86\Debug\cspWrapper.dll</HintPath>
     </Reference>
     <Reference Include="netFteo">
-      <HintPath>C:\Program Files\Fixosoft\netfteo\NET35\Win32-Debug\netFteo.dll</HintPath>
+      <HintPath>..\..\..\c#\RRStudio\Builds\x86\Debug\netFteo.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
@@ -246,7 +246,7 @@
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_io.h" />
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_mif.h" />
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\NETWrappers.h" />
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++_fteo\esviewer.h" />
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++\esviewer.h" />
     <ClInclude Include="ContourEditorForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -316,11 +316,6 @@
       <DependentUpon>wzPointFrm.h</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RRTypes_cpp\RRTypes_cpp.vcxproj">
-      <Project>{28deacd5-8283-4add-9652-3ab9ca547aa1}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
