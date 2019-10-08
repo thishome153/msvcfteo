@@ -77,8 +77,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
-    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\lib;$(Solutiondir)..\Firebird-ibpp\$(Configuration)\Win32;$(Solutiondir)..\Fixosoft-SDK\lib\$(Configuration);$(LibraryPath)</LibraryPath>
-    <IncludePath>include;$(SolutionDir)..\Fixosoft-SDK\cpl;$(SolutionDir)..\Fixosoft-SDK\dxflib;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\win32++;$(SolutionDir)..\Firebird-ibpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\lib\;$(Solutiondir)..\Firebird-ibpp\$(Configuration)\;$(SolutionDir)..\mitab-1.7.0\$(Configuration)\;$(Solutiondir)..\Fixosoft-SDK\lib\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>include;$(SolutionDir)..\Fixosoft-SDK\cpl;$(SolutionDir)..\Fixosoft-SDK\dxflib;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)..\mitab-1.7.0\mitab\;$(SolutionDir)..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\win32++;$(SolutionDir)..\Firebird-ibpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -116,7 +116,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>comctl32.lib;ibpp.lib;fbclient_ms.lib;win32wrapper.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>comctl32.lib;ibpp.lib;fbclient_ms.lib;win32wrapper.lib;mitab.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>
       </Version>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -186,11 +186,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <!--
     <Reference Include="cspWrapper">
       <HintPath>..\..\..\c#\RRStudio\Builds\x86\Debug\cspWrapper.dll</HintPath>
     </Reference>
+    -->
+    <Reference Include="cspWrapper">
+      <HintPath>..\..\..\c#\RosreestrStudio\Builds\x86\Debug\cspWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="netFteo">
-      <HintPath>..\..\..\c#\RRStudio\Builds\x86\Debug\netFteo.dll</HintPath>
+      <HintPath>..\..\..\c#\RosreestrStudio\Builds\x86\Debug\netFteo.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
@@ -247,6 +252,8 @@
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_mif.h" />
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\NETWrappers.h" />
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++\esviewer.h" />
+    <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab.h" />
+    <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab_capi.h" />
     <ClInclude Include="ContourEditorForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

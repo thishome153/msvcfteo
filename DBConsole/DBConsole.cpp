@@ -62,7 +62,7 @@ void Test_SOCI()
 	for(std::size_t i = 0; i != r.size(); ++i)
 	{
 		 doc << r.get<std::string>(i);
-		 printf("\nitem:  %16.2f\n\n", doc);
+		 printf("\nitem:  %16.2f\n\n"); //TODO print doc content
 	}
 
 	printf("\n .....Disconnect");

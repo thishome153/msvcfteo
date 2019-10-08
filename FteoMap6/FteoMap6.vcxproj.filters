@@ -152,6 +152,12 @@
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++\esviewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab_capi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
