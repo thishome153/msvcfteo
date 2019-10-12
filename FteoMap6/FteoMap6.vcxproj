@@ -190,12 +190,19 @@
     <Reference Include="cspWrapper">
       <HintPath>..\..\..\c#\RRStudio\Builds\x86\Debug\cspWrapper.dll</HintPath>
     </Reference>
-    -->
+    
     <Reference Include="cspWrapper">
       <HintPath>..\..\..\c#\RosreestrStudio\Builds\x86\Debug\cspWrapper.dll</HintPath>
     </Reference>
     <Reference Include="netFteo">
       <HintPath>..\..\..\c#\RosreestrStudio\Builds\x86\Debug\netFteo.dll</HintPath>
+    </Reference>
+    -->
+    <Reference Include="cspWrapper">
+      <HintPath>..\..\RosreestrStudio\Builds\x86\Debug\cspWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="netFteo">
+      <HintPath>..\..\RosreestrStudio\Builds\x86\Debug\netFteo.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
