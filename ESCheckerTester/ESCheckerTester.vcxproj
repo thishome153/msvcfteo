@@ -106,8 +106,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <!--
     <Reference Include="netFteo">
       <HintPath>..\..\..\c#\RosreestrStudio\Builds\x86\Debug\netFteo.dll</HintPath>
+    </Reference>
+    -->
+    <Reference Include="netFteo">
+      <HintPath>..\..\RRStudio\Builds\x86\Debug\netFteo.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>

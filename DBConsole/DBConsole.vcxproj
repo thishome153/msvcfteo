@@ -63,7 +63,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\soci-3.2.3.my\core;$(SolutionDir)..\soci-3.2.3.my\backends\firebird;$(SolutionDir)\..\Firebird-ibpp\include;$(SolutionDir)\..\Firebird-ibpp\src;$(SolutionDir)\..\mitab_src\mitab-1.7.0\mitab;$(SolutionDir)\..\mitab_src\mitab-1.7.0\ogr;$(SolutionDir)\..\mitab_src\mitab-1.7.0\cpl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\soci\include\soci;$(SolutionDir)..\soci-3.2.3.my\backends\firebird;$(SolutionDir)\..\Firebird-ibpp\include;$(SolutionDir)\..\Firebird-ibpp\src;$(SolutionDir)\..\mitab_src\mitab-1.7.0\mitab;$(SolutionDir)\..\mitab_src\mitab-1.7.0\ogr;$(SolutionDir)\..\mitab_src\mitab-1.7.0\cpl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;IBPP_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
