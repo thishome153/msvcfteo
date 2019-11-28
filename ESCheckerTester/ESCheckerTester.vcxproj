@@ -50,7 +50,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
-    <LibraryPath>$(SolutionDir)..\Fixosoft-SDK\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\..\Fixosoft-SDK\lib\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
@@ -63,7 +63,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)\..\Fixosoft-SDK\dxflib;$(SolutionDir)\..\Fixosoft-SDK\cpl;$(SolutionDir)\ESChecker;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)\..\..\Fixosoft-SDK\dxflib;$(SolutionDir)\..\..\Fixosoft-SDK\cpl;$(SolutionDir)\ESChecker;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader />
@@ -140,8 +140,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp" />
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.cpp" />
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp" />
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ESCheckerTester.cpp" />
     <ClCompile Include="Form1.cpp" />
@@ -153,7 +153,7 @@
     <ClCompile Include="TFileList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h" />
+    <ClInclude Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h" />
     <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.h" />
     <ClInclude Include="..\ESChecker\EScheker.h" />
     <ClInclude Include="Form1.h">

@@ -39,10 +39,10 @@
     <ClCompile Include="TFileList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.cpp">
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,10 +65,10 @@
     <ClInclude Include="TFileList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h">
+    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\MyStrMarshal.h">
+    <ClInclude Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

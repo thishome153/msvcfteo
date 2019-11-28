@@ -60,38 +60,35 @@
     <ClCompile Include="wzCadworkEditor.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\CadWorks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_writer_ascii.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_base.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_cpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_geo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_io.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_mif.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
       <Filter>Sources_Fixosoft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\NETWrappers.cpp">
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\NETWrappers.cpp">
       <Filter>Sources_Fixosoft</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_mif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_io.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_geo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_cpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\dxflib\dl_writer_ascii.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\CadWorks.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,31 +128,31 @@
     <ClInclude Include="include\Polygon.h">
       <Filter>Schemes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_cpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_io.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\fteo_mif.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\include\NETWrappers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Fixosoft-SDK\fteo\win32++\esviewer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab_capi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\include\fteo_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\include\NETWrappers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\include\fteo_cpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\include\fteo_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\include\fteo_mif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c#\Fixosoft-SDK\fteo\win32++\esviewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
