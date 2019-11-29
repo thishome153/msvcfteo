@@ -60,34 +60,34 @@
     <ClCompile Include="wzCadworkEditor.cpp">
       <Filter>Forms</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\fteoNET\CLR_baseClasses.cpp">
       <Filter>Sources_Fixosoft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\NETWrappers.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\NETWrappers.cpp">
       <Filter>Sources_Fixosoft</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_mif.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\CadWorks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_io.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_geo.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_writer_ascii.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_cpl.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\fteo_base.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_cpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\dxflib\dl_writer_ascii.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_geo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_io.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Fixosoft-SDK\fteo\src\CadWorks.cpp">
+    <ClCompile Include="..\..\Fixosoft-SDK\fteo\src\fteo_mif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

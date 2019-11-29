@@ -47,10 +47,10 @@
     <ClInclude Include="..\..\Firebird-ibpp\include\ibpp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\soci\include\soci\soci.h">
+    <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab.h">
+    <ClInclude Include="..\..\..\c++\soci-3.2.3.my\core\soci.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

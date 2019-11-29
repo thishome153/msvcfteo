@@ -837,6 +837,7 @@ namespace FteoDBForms {
 		Ofrm->Cfg->ReadINI();
 		ClearControls();
 	}
+
 	private: System::Void íàñòðîéêèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Ofrm->ShowDialog(this);
 	}

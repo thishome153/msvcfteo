@@ -45,6 +45,7 @@ namespace FteoDBForms
 	private: System::Windows::Forms::ToolStripMenuItem^ ןמלמשüToolStripMenuItem;
 	public:
 		fteo::api::TMyContours* EditorData; //×עמ מעמבנאזאוע ט ס קול נאבמעאוע ContourEditor.
+		netFteo::Spatial::TEntitySpatial^ ES; // Also with NET
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -483,6 +484,15 @@ namespace FteoDBForms
 		}
 	}
 
+private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
+	if (editorData)
+	{
+		fteo::NET::Lister^ lstr = gcnew fteo::NET::Lister();
+	//	lstr->ListContours(treeView1, editorData);
+		UpdateKPTinfo();
+	}
+}
+
 	private: void CheckSpatials(fteo::api::TMyContours* editorData, fteo::api::TMyContours* KPTData) {
 
 
@@ -549,10 +559,16 @@ namespace FteoDBForms
 		{
 			fteo::api::TextReader* myTR = new fteo::api::TextReader();
 			//fteo::api::TMyContours *impPoints = myTR->Read_csv_TechnoCADF(fteo::NET::StringtoChar(openFileDialog1->FileName));
-			this->EditorData = myTR->Read_csv_TechnoCADF(fteo::NET::StringtoChar(openFileDialog1->FileName));
-			ListEditorData(this->EditorData);
+
+			//using NET:
+			netFteo::IO::TextReader^ csvDataReader = gcnew netFteo::IO::TextReader(openFileDialog1->FileName);
+			netFteo::Spatial::TEntitySpatial^ csvData = csvDataReader->ImportCSVFile();
+			ListEditorData(csvData);
+			//this->EditorData = myTR->Read_csv_TechnoCADF(fteo::NET::StringtoChar(openFileDialog1->FileName));
+			//ListEditorData(this->EditorData);
 		};
 	};
+
 
 	private: void Open_mif() {
 		openFileDialog1->Filter = "mif פאיכû|*.mif|Âסו פאיכû|*.*";
@@ -690,9 +706,11 @@ namespace FteoDBForms
 
 		this->KPT_OpenCSVTechnoCAD();
 	}
+
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
 	}
+
 	private: System::Void mifפאיכToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->KPT_Open_mif();
 	}

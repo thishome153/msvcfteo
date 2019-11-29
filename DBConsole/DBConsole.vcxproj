@@ -49,7 +49,7 @@
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
     <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)..\Firebird-ibpp\lib;$(SolutionDir)..\Firebird-ibpp\$(Configuration);$(SolutionDir)..\soci-3.2.3.my\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\Firebird-ibpp\lib;$(SolutionDir)..\Firebird-ibpp\$(Configuration);$(SolutionDir)..\..\c++\soci-3.2.3.my\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
@@ -63,7 +63,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\soci\include\soci;$(SolutionDir)..\soci-3.2.3.my\backends\firebird;$(SolutionDir)\..\Firebird-ibpp\include;$(SolutionDir)\..\Firebird-ibpp\src;$(SolutionDir)\..\mitab_src\mitab-1.7.0\mitab;$(SolutionDir)\..\mitab_src\mitab-1.7.0\ogr;$(SolutionDir)\..\mitab_src\mitab-1.7.0\cpl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\c++\soci-3.2.3.my\core;$(SolutionDir)..\..\c++\soci-3.2.3.my\backends\firebird;$(SolutionDir)\..\Firebird-ibpp\include;$(SolutionDir)\..\Firebird-ibpp\src;$(SolutionDir)\..\mitab_src\mitab-1.7.0\mitab;$(SolutionDir)\..\mitab_src\mitab-1.7.0\ogr;$(SolutionDir)\..\mitab_src\mitab-1.7.0\cpl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;IBPP_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -109,9 +109,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\c++\soci-3.2.3.my\core\soci.h" />
     <ClInclude Include="..\..\Firebird-ibpp\include\ibpp.h" />
     <ClInclude Include="..\..\mitab-1.7.0\mitab\mitab.h" />
-    <ClInclude Include="..\..\soci\include\soci\soci.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

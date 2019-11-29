@@ -451,6 +451,7 @@ wr_TWorks^ Loader::LoadCadWorks(isc_db_handle dbHandle, int CadWorkType)
 //---------------------------------------------------------------------------------------
 using namespace fteo::NET;
 using namespace fteo::api;
+
 wr_TMyPoints^ Loader::LoadPoints(isc_db_handle dbHandle, int parent_id) //Загрузить точки
  {
    wr_TMyPoints^ Result = gcnew wr_TMyPoints();
@@ -538,11 +539,32 @@ wr_TMyPoints^ Loader::LoadPoints(isc_db_handle dbHandle, int parent_id) //Загруз
 	if (isc_dsql_free_statement(status, & Statement, DSQL_close))
     {
 	}
-
-
   return Result;
+}
 
-}//end Загрузить точки
+
+
+netFteo::Spatial::TEntitySpatial^ Loader::LoadContours(isc_db_handle dbHandle, int parent_id)
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: insert return statement here
+}
+
+
+//Load from table LAYERS and create contour prototype - without populated points
+wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
+{
+	wr_TMyContours^ Result = gcnew wr_TMyContours();
+	Result->API->Parent_id = parent_id;
+
+	char* sel_str;
+	//TODO:
+	//ConcatChars(sel_str, "select OPORA_ID,NUM ,x ,y ,STATUS_OPORA , DESCRIPTION from LAEYRS where ID_BLOCK ", CadWorkTypeToChar(parent_id), " order by OPORA_ID asc ");
+	return Result;
+}
+
+
+//end Загрузить точки
 
 
 int Loader::LoadParcels3(isc_db_handle dbHandle)
@@ -568,6 +590,7 @@ void IBPPDriver::CloseData()
   {
    this->ibpp->DB_ibpp->Disconnect();
   };
+
 //Точки могут быть привязаны к полю ID_Block или Parent_id в разных случаях (ЕЗП или нет)
 //Поэтому этот метод загрузчика имя поля для выборки имеет как параметр FieldName
  wr_TMyPoints^ IBPPDriver::LoadPoints(isc_db_handle dbHandle, char *FieldName, int FieldValue)

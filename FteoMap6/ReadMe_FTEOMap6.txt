@@ -2,7 +2,11 @@
     APPLICATION : FteoMap6/DbClient Project Overview 2015-2016-2017
 ========================================================================
 Реинкарнация FTEO в C++.
-Зависимости  - NET 3.5, Firebird 2.5x(client), IBPP, SOCI
+
+Зависимости  - NET 3.5, 
+Firebird 2.5x(client), 
+IBPP, 
+SOCI
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -12,14 +16,6 @@
 ВВодим чужую форму как header файл, меняем namespace и тоlько потом меняем
 тип с Header на c+++- Form
 
-
-/////////////////////////////////////////////////////////////////////////////
-AssemblyInfo.cpp Contains custom attributes for modifying assembly metadata.
-
-/////////////////////////////////////////////////////////////////////////////
-Other standard files:
-StdAfx.h, StdAfx.cpp     These files are used to build a precompiled header (PCH) file
-    named DbClient.pch and a precompiled types file named StdAfx.obj.
 
 /////////////////////////////////////////////////////////////////////////////
 Firebird
@@ -37,7 +33,6 @@ SOCI
  win32++
  Обертки  winapi. Пока все прозрачно. Из него слепим EsViewer.
 
-
 /////////////////2017: SDKSolution: 
 Библиотека ibpp		- выведена в статическую бибилотеку ibpp.lib
 Базовые классы,CPL  - выведена в статическую бибилотеку corefteo.lib
@@ -46,4 +41,4 @@ SOCI
 /////////////////
 180117:
 	Новые грабли fteomap6 - debug assertions failed... Компилится, но не запускается
-	Вывод - ibpp должна быть скомпилирована с /clr. И все!!!
+	Вывод - ibpp most comliped с /clr. !!!
