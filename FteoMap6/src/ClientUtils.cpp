@@ -4,7 +4,7 @@
 
 
 
-#include <ibase.h>
+#include <ibase.h> // firebird header within IBPP library
 //#include <stdio.h>
 #include <string.h> //for string: strcpy
 #include <stdlib.h>  // for: mallloc 
@@ -555,11 +555,15 @@ netFteo::Spatial::TEntitySpatial^ Loader::LoadContours(isc_db_handle dbHandle, i
 wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 {
 	wr_TMyContours^ Result = gcnew wr_TMyContours();
-	Result->API->Parent_id = parent_id;
+	TLayers* Layers = new  TLayers();
+	Layers->id = parent_id;
 
+	// TODO need update SDk baseclassssesss
+	//Result->API->Parent_id = parent_id;
+	 
 	char* sel_str;
 	//TODO:
-	//ConcatChars(sel_str, "select OPORA_ID,NUM ,x ,y ,STATUS_OPORA , DESCRIPTION from LAEYRS where ID_BLOCK ", CadWorkTypeToChar(parent_id), " order by OPORA_ID asc ");
+	//ConcatChars(sel_str, "select LAYER_ID, Parent_ID, LayerName, LAYER_TYPE, Lot_ID, Geometric_Type from LAEYRS where LOT_ID ", CadWorkTypeToChar(parent_id), " order by LAYERS.LAYER_ORDER asc ");
 	return Result;
 }
 
