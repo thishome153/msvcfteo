@@ -478,7 +478,7 @@ namespace FteoDBForms
 		Cfg->SetUserName(textBox_uname->Text);
 		Cfg->SetDBName(comboBox1->Text);
 		Cfg->SetServer(comboBox_Server->Text);
-
+		Cfg->SetUserPwrd(textBox_UPasswrd->Text);
 		Cfg->API->Mt_common = Convert::ToInt32(textBox_Mt->Text);
 		Cfg->API->Mt_SKPT = Convert::ToInt32(textBox_Mt_SKPT->Text);
 		Cfg->WriteINI();

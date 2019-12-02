@@ -84,7 +84,13 @@ namespace fteo
 	   if (FteoDBHandle) return NULL;
 
 	   char *ConnStr;
-	   ConcatChars(ConnStr, server,":",dbname);
+	   if (strcmp(server, "localhost") == 0)
+	   {
+		   ConnStr = (char*)malloc(strlen(dbname));
+		   strcpy(ConnStr, dbname);
+	   }
+	   else
+		   ConcatChars(ConnStr, server, ":", dbname);
 	  // static char *create_tbl  = "CREATE TABLE dbinfo (when_created DATE)";
       // static char *insert_date = "INSERT INTO dbinfo VALUES ('NOW')";
 	  // ISC_SCHAR 
@@ -97,6 +103,7 @@ namespace fteo
    //Ошибки в определениях типа isc_error_......
    // 335544472 -Your user name and password are not defined. Ask your database administrator to set up a Firebird login
   //  335544721 - isc_network_error
+  //  335544741 - isc_lost_db_connection
   
 
 	char             dpb[48];

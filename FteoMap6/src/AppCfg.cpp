@@ -52,6 +52,11 @@ namespace fteo
      this->API->username = fteo::NET::StringtoChar(_Value);
 	 }
 
+	void TAppOptions::SetUserPwrd(System::String^ _Value)
+	{
+		this->API->upassword = fteo::NET::StringtoChar(_Value);
+	}
+
 	void TAppOptions::SetUserName(char *_Value)
 	 {
 		 this->API->username = _Value;
@@ -108,9 +113,9 @@ bool	TAppOptions::WriteINI()
       nk->SetValue("Company", "Fixosoft");
 	  nk->SetValue("Product", "©Fteo {this->in->Visual C++;}");
 	  nk->SetValue("Version", FTEO_VERSION);
-	  nk->SetValue("IDE", "Visual C++ 2008 Express (VC90)");
+	  nk->SetValue("IDE", "MSVS 2019 CE ");
 	  nk->SetValue("SQLNAME", this->GetUserNameW());
-	  nk->SetValue("password", "masterkey");
+	  nk->SetValue("password", this->GetUserPwrdW());
 	  nk->SetValue("dbname", this->GetDBNameW());
 	  nk->SetValue("server", this->GetServerW());
       nk->SetValue("Mt_common", this->API->Mt_common);	  
@@ -131,16 +136,21 @@ bool	TAppOptions::ReadINI()
      using namespace System;
      using namespace Microsoft::Win32;
  RegistryKey^ rk;
-   rk  = Registry::CurrentUser->OpenSubKey("Software", true)->OpenSubKey("Fixosoft")->OpenSubKey("fteo")->OpenSubKey(FTEO_VERSION);
-   	   if (!rk) {return false;}
-	   this->SetUserName((System::String^) rk->GetValue("SQLNAME"));
-	   this->SetServer((System::String^) rk->GetValue("server"));
-	   this->SetDBName  ((System::String^) rk->GetValue("dbname"));
-	   this->API->upassword = fteo::NET::StringtoChar((System::String^) rk->GetValue("password"));
-       if (rk->GetValue("Mt_common"))
-       this->API->Mt_common = (int) rk->GetValue("Mt_common");
-       if (rk->GetValue("Mt_SKPT"))
-       this->API->Mt_SKPT   = (int) rk->GetValue("Mt_SKPT");
+ if (!Registry::CurrentUser->OpenSubKey("Software", true)->OpenSubKey("Fixosoft"))
+ {
+	 rk = Registry::CurrentUser->OpenSubKey("Software", true)->OpenSubKey("Fixosoft")->OpenSubKey("fteo")->OpenSubKey(FTEO_VERSION);
+	 if (!rk) { return false; }
+	 this->SetUserName((System::String^) rk->GetValue("SQLNAME"));
+	 this->SetServer((System::String^) rk->GetValue("server"));
+	 this->SetDBName((System::String^) rk->GetValue("dbname"));
+	 this->API->upassword = fteo::NET::StringtoChar((System::String^) rk->GetValue("password"));
+	 if (rk->GetValue("Mt_common"))
+		 this->API->Mt_common = (int)rk->GetValue("Mt_common");
+	 if (rk->GetValue("Mt_SKPT"))
+		 this->API->Mt_SKPT = (int)rk->GetValue("Mt_SKPT");
+	 return true;
+ }
+ else 
 	 return false;
 
 }// end REadINI

@@ -56,6 +56,7 @@ namespace fteo
 		void SetServer(System::String^ _Value);
 		void SetServer(char* _Value);
 		void SetUserName(System::String^ _Value);
+		void SetUserPwrd(System::String^ _Value);
 		void SetUserName(char* _Value);
 		void SetDBName(System::String^ _Value);
 		void SetDBName(char* _Value);
