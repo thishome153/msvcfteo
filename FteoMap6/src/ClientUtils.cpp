@@ -11,9 +11,11 @@
 
 using namespace netFteo;
 
- //Глобальные переменные для Database
+ // Database global variables:
 	isc_db_handle FteoDBHandle = NULL;
 	isc_tr_handle FteoTrHandle = NULL;
+	ISC_STATUS FteoDBStatus = NULL;
+	
 	//TAppOptions^ MainConfig = gcnew TAppOptions();
 
 namespace fteo
@@ -94,6 +96,7 @@ namespace fteo
     //char            new_dbname[128];
    //Ошибки в определениях типа isc_error_......
    // 335544472 -Your user name and password are not defined. Ask your database administrator to set up a Firebird login
+  //  335544721 - isc_network_error
   
 
 	char             dpb[48];
@@ -114,7 +117,9 @@ namespace fteo
     i += len;
 
 	isc_attach_database(status, 0, ConnStr, &dbHandle, i, dpb);
-  
+	
+	FteoDBStatus = status[1];
+
 	  if (dbHandle)
 		{
 			FteoDBHandle = dbHandle;

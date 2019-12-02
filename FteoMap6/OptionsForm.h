@@ -28,6 +28,7 @@ namespace FteoDBForms
 	public ref class OptionsForm : public System::Windows::Forms::Form
 	{
 	public:	fteo::TAppOptions^ Cfg;
+			System::Collections::Generic::List< cspUtils::CertInfo^>^ Certificates;// global list of certififcates in MY_STORE
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::ComboBox^ comboBox_Server;
 	private: System::Windows::Forms::Label^ label4;
@@ -44,6 +45,7 @@ namespace FteoDBForms
 
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Button^ Browse_button;
 
 
 	public:
@@ -122,6 +124,7 @@ namespace FteoDBForms
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(OptionsForm::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->Browse_button = (gcnew System::Windows::Forms::Button());
 			this->comboBox_Server = (gcnew System::Windows::Forms::ComboBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textBox_UPasswrd = (gcnew System::Windows::Forms::TextBox());
@@ -165,6 +168,7 @@ namespace FteoDBForms
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->Browse_button);
 			this->tabPage1->Controls->Add(this->comboBox_Server);
 			this->tabPage1->Controls->Add(this->label4);
 			this->tabPage1->Controls->Add(this->textBox_UPasswrd);
@@ -180,6 +184,16 @@ namespace FteoDBForms
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"База данных";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// Browse_button
+			// 
+			this->Browse_button->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Browse_button.Image")));
+			this->Browse_button->Location = System::Drawing::Point(511, 11);
+			this->Browse_button->Name = L"Browse_button";
+			this->Browse_button->Size = System::Drawing::Size(28, 27);
+			this->Browse_button->TabIndex = 16;
+			this->Browse_button->UseVisualStyleBackColor = true;
+			this->Browse_button->Click += gcnew System::EventHandler(this, &OptionsForm::Browse_Database);
 			// 
 			// comboBox_Server
 			// 
@@ -270,9 +284,9 @@ namespace FteoDBForms
 					L"/mnt/win_c/databases/CURRENTWORK.GDB", L"geo-complex.com:/mnt/win_c/databases/test_fteo.gdb", L"C:\\\\Designer.Local\\\\Databases$.local\\\\fteo.gdb",
 					L"C:\\\\Work.local\\\\fteo.gdb"
 			});
-			this->comboBox1->Location = System::Drawing::Point(163, 9);
+			this->comboBox1->Location = System::Drawing::Point(163, 11);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(376, 24);
+			this->comboBox1->Size = System::Drawing::Size(342, 24);
 			this->comboBox1->TabIndex = 8;
 			// 
 			// tabPage2
@@ -372,6 +386,7 @@ namespace FteoDBForms
 			this->Certs_listBox->Name = L"Certs_listBox";
 			this->Certs_listBox->Size = System::Drawing::Size(376, 24);
 			this->Certs_listBox->TabIndex = 11;
+			this->Certs_listBox->SelectedIndexChanged += gcnew System::EventHandler(this, &OptionsForm::Cert_ComboBox);
 			// 
 			// label7
 			// 
@@ -495,18 +510,31 @@ namespace FteoDBForms
 	}
 
 	private: System::Void OptionsForm_Load(System::Object^ sender, System::EventArgs^ e) {
-
-
 		this->Certs_listBox->Items->Clear();
-
 		cspUtils::CadesWrapper^ cw = gcnew cspUtils::CadesWrapper();
-		System::Collections::Generic::List<System::String^>^ certs = cw->GetCertificates();
-
-		for each (String ^ var in certs)
-			this->Certs_listBox->Items->Add(var);
+		Certificates = cw->GetCertificatesObj();
+		for each (cspUtils::CertInfo ^ var in Certificates)
+			this->Certs_listBox->Items->Add(var->SubjectName);
 	}
 
+	private: System::Void Cert_ComboBox(System::Object^ sender, System::EventArgs^ e) {
+		cspUtils::CertInfo^ curCert = Certificates[Certs_listBox->SelectedIndex];
+		label8->Text = curCert->SubjectName + "\n\r" + curCert->SerialNumber+
+			"\n\r Valide after:" + curCert->ValidNotAfter;
+	}
 	
+	private: System::Void Browse_Database(System::Object^ sender, System::EventArgs^ e) {
+	System::Windows::Forms::OpenFileDialog^ openFileDialog1 = gcnew  System::Windows::Forms::OpenFileDialog();
+		openFileDialog1->Filter = "Firebird data|*.gdb|Все файлы|*.*";
+		openFileDialog1->FilterIndex = 0;
+		if (openFileDialog1->ShowDialog(this) == System::Windows::Forms::DialogResult::OK)
+		{
+			this->comboBox1->Text = openFileDialog1->FileName;
+
+		}
+	};
+
+
 };
 }
 
