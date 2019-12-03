@@ -1,6 +1,6 @@
 #include "AppCfg.h"
 #include "ClientUtils.h"
-#include "esviewer.h" // ядро win32++
+#include "esviewer.h" // core win32++
 
 #include "OptionsForm.h"
 #include "OporaForm.h"
@@ -695,23 +695,23 @@ namespace FteoDBForms {
 
 			 // Вызов редактора ContourEditor (да продлит дни его Delphi2006!)
 	private: System::Boolean Call_ContourEditor(TreeNode^ SelNode) {
-
-		/* ПРикроем на время отладки CE:
-		  System::Object^ SomeObject =ChangeItem(SelNode); //Получим ссылку на текущий Work
-			   if (SomeObject)  {
-				 fteo::NET::wr_TWork^ Here = (fteo::NET::wr_TWork^) SomeObject  ;//cast to !!
-				 int test = Here->API->EntryList->size();
-				 if (Here->API->EntryCount() == 0)
-				   {
-						 ::firebird::IBPPDriver^ ibpploader2 =  gcnew firebird::IBPPDriver(Ofrm->Cfg);
-												 ibpploader2 -> LoadChilds(FteoDBHandle, Here);
-												 ibpploader2 -> CloseData();
-												 */
-												 // }
-		Cntfrm->ShowDialog(this);
-		//  }
-		return false;
-	};
+		System::Object^ SomeObject = ChangeItem(SelNode); //Получим ссылку на текущий Work
+		if (SomeObject) {
+			fteo::NET::wr_TWork^ Here = (fteo::NET::wr_TWork^) SomeObject;//cast to !!
+			/* 		/* ПРикроем на время отладки CE: 
+			int test = Here->API->EntryList->size();
+			if (Here->API->EntryCount() == 0)
+			  {
+					::firebird::IBPPDriver^ ibpploader2 =  gcnew firebird::IBPPDriver(Ofrm->Cfg);
+											ibpploader2 -> LoadChilds(FteoDBHandle, Here);
+											ibpploader2 -> CloseData();
+											*/
+			Cntfrm->Item_id = Here->API->id;
+			Cntfrm->ShowDialog(this);
+			//  }
+			return false;
+		}
+	}
 
 
 	private: void ClearControls()

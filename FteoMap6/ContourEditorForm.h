@@ -1,4 +1,5 @@
 //#include "fteo_core.h"
+#include "ClientUtils.h"
 #include "CLR_baseClasses.h"
 #include "NETWrappers.h"
 #include "esviewer.h"
@@ -46,6 +47,8 @@ namespace FteoDBForms
 	public:
 		fteo::api::TMyContours* EditorData; //×עמ מעמבנאזאוע ט ס קול נאבמעאוע ContourEditor.
 		netFteo::Spatial::TEntitySpatial^ ES; // Also with NET
+		int Item_id;
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -709,6 +712,8 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
+		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
+		Ld->LoadLayers(FteoDBHandle,this->Item_id);
 	}
 
 	private: System::Void mifפאיכToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

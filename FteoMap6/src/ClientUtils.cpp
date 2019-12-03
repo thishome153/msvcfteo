@@ -493,7 +493,7 @@ wr_TMyPoints^ Loader::LoadPoints(isc_db_handle dbHandle, int parent_id) //Загруз
 	   //   Allocate and prepare the select statement.
        if (isc_dsql_allocate_statement(status, &dbHandle, &Statement))
         {}	  
-		   sqlda = (XSQLDA *) malloc(XSQLDA_LENGTH(6)); //Здесь потому что выбираем 6 поле.
+		   sqlda = (XSQLDA *) malloc(XSQLDA_LENGTH(6)); //6 - because we`ll select six fields
 		   sqlda->sqln = 6;
 		   sqlda->sqld = 6;
            sqlda->version = 1;
@@ -541,9 +541,7 @@ wr_TMyPoints^ Loader::LoadPoints(isc_db_handle dbHandle, int parent_id) //Загруз
           Item->DeltaGeopoint = 0;
           Item->Status = _status;
           Item->Description = FBArrayToChar(PointDescr);
-
           Result->AppendPoint(Item);
-          
 	  }
     free (sqlda);
 
@@ -575,12 +573,93 @@ wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	 
 	char* sel_str;
 	//TODO:
-	//ConcatChars(sel_str, "select LAYER_ID, Parent_ID, LayerName, LAYER_TYPE, Lot_ID, Geometric_Type from LAEYRS where LOT_ID ", CadWorkTypeToChar(parent_id), " order by LAYERS.LAYER_ORDER asc ");
+	ConcatChars(sel_str, "select LAYER_ID, Parent_ID, LayerName, LAYER_TYPE, Lot_ID, Geometric_Type from LAYERS where LOT_ID ", CadWorkTypeToChar(parent_id), " order by LAYERS.LAYER_ORDER asc ");
+
+
+	double   LAYER_ID = 0;
+	double   Parent_ID = -1;
+	char     LayerName[25 + 2];
+	char     LAYER_TYPE[25 + 2];
+	double   Lot_ID = -1;
+	double   Geometric_Type = -1;
+	
+
+	int				  RecCount = 0;
+	long                fetch_stat;
+	isc_stmt_handle     Statement = NULL;
+	ISC_STATUS_ARRAY    status;
+	isc_tr_handle       trans = NULL;
+	XSQLDA* sqlda;
+	short               flag0 = 0;  short flag3 = 0;
+	short               flag1 = 0;  short flag4 = 0;
+	short               flag2 = 0;  short flag5 = 0;
+	//   Allocate and prepare the select statement.
+	if (isc_dsql_allocate_statement(status, &dbHandle, &Statement))
+	{
+	}
+	sqlda = (XSQLDA*)malloc(XSQLDA_LENGTH(6)); //6 - because we`ll select six fields
+	sqlda->sqln = 6;
+	sqlda->sqld = 6;
+	sqlda->version = 1;
+
+	if (isc_dsql_prepare(status, &FteoTrHandle, &Statement, 0, sel_str, SQL_DIALECT_V6, sqlda))
+	{
+	}
+	sqlda->sqlvar[0].sqldata = (char*)& LAYER_ID;
+	sqlda->sqlvar[0].sqltype = SQL_DOUBLE + 1;   //Почему +1 ????!!!!
+	sqlda->sqlvar[0].sqllen = sizeof(LAYER_ID);
+	sqlda->sqlvar[0].sqlind = &flag0;
+
+	sqlda->sqlvar[1].sqldata = (char*)& Parent_ID;
+	sqlda->sqlvar[1].sqltype = SQL_DOUBLE + 1;   //Почему +1 ????!!!!
+	sqlda->sqlvar[1].sqllen = sizeof(Parent_ID);
+	sqlda->sqlvar[1].sqlind = &flag1;
+
+	// для varchar достаточно и так:
+	sqlda->sqlvar[2].sqldata = LayerName;
+	sqlda->sqlvar[2].sqlind = &flag2;
+
+	// для varchar достаточно и так:
+	sqlda->sqlvar[3].sqldata = LAYER_TYPE;
+	sqlda->sqlvar[3].sqlind = &flag3;
+
+	sqlda->sqlvar[4].sqldata = (char*)& Lot_ID;
+	sqlda->sqlvar[4].sqltype = SQL_DOUBLE + 1;   
+	sqlda->sqlvar[4].sqllen = sizeof(Lot_ID);
+	sqlda->sqlvar[4].sqlind = &flag4;
+
+	sqlda->sqlvar[5].sqldata = (char*)& Geometric_Type;
+	sqlda->sqlvar[5].sqltype = SQL_DOUBLE + 1;
+	sqlda->sqlvar[5].sqllen = sizeof(Lot_ID);
+	sqlda->sqlvar[5].sqlind = &flag5;
+
+	if (isc_dsql_execute(status, &FteoTrHandle, &Statement, 1, NULL))
+	{
+	}
+	//free(sel_str);
+
+ //335544569 - isc_dsql_error 
+	while ((fetch_stat = isc_dsql_fetch(status, &Statement, SQL_DIALECT_V6, sqlda)) == 0)
+	{
+		RecCount++;
+		TLayer* Layer = new TLayer();
+		Layer->Layer_ID = LAYER_ID;
+		Layer->Geometric_Type = Geometric_Type;
+		Layer->LayerName = LayerName;
+		Layer->Parent_ID = Parent_ID;
+	}
+	free(sqlda);
+
+	/* Free statement handle. */
+	if (isc_dsql_free_statement(status, &Statement, DSQL_close))
+	{
+	}
+
+
 	return Result;
 }
 
 
-//end Загрузить точки
 
 
 int Loader::LoadParcels3(isc_db_handle dbHandle)
