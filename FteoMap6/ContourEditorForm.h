@@ -738,7 +738,7 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
 		fteo::api::TLayers* Layers =  Ld->LoadLayers(FteoDBHandle, this->Item_id);
 		//ListEditorData(Layers);
-		free(Layers);
+		//free(Layers);
 	}
 
 	private: System::Void mifôàéëToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

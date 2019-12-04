@@ -588,8 +588,8 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	long                fetch_stat;
 	isc_stmt_handle     Statement = NULL;
 	ISC_STATUS_ARRAY    status;
-	isc_tr_handle       trans = NULL;
-	XSQLDA* sqlda;
+	isc_tr_handle       trans = NULL;  // local transaction handle 
+	XSQLDA* sqlda;						// sqldata adapter
 	short               flag0 = 0;  short flag3 = 0;
 	short               flag1 = 0;  short flag4 = 0;
 	short               flag2 = 0;  short flag5 = 0;
@@ -602,7 +602,12 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	sqlda->sqld = 6;
 	sqlda->version = 1;
 
-	if (isc_dsql_prepare(status, &FteoTrHandle, &Statement, 0, sel_str, SQL_DIALECT_V6, sqlda))
+	if (isc_start_transaction(status, &trans, 1, &dbHandle, 0, NULL))
+	{
+		//ERREXIT(status, 1)
+	}
+
+	if (isc_dsql_prepare(status, &trans, &Statement, 0, sel_str, SQL_DIALECT_V6, sqlda))
 	{
 	}
 	free(sel_str);
@@ -637,7 +642,7 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	sqlda->sqlvar[5].sqllen = sizeof(Geometric_Type);
 	sqlda->sqlvar[5].sqlind = &flag5;
 
-	if (isc_dsql_execute(status, &FteoTrHandle, &Statement, 1, NULL))
+	if (isc_dsql_execute(status, &trans, &Statement, 1, NULL))
 	{
 	}
 	
@@ -664,7 +669,7 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	{
 	}
 
-
+	isc_commit_transaction(status, &trans);
 	return Layers;
 }
 
