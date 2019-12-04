@@ -496,6 +496,29 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 	}
 }
 
+	private: void ListEditorData(fteo::api::TLayers* editorData) {
+		if (editorData->Items->empty()) return;
+
+		std::list<fteo::api::TLayer>::const_iterator pt = editorData->Items->begin();
+
+		for (pt = editorData->Items->begin(); pt != editorData->Items->end(); pt++)
+		{
+			//      std::advance(pt, 1);  // Increments given iterator it by n elements.
+			treeView1->Nodes->Add(fteo::NETWrappers::CharToString(pt->LayerName));
+
+		}
+
+		/*
+		for (int ip = 0; ip <= editorData->Items->size() - 1; ip++)
+		{
+			//TODO: Access to list items
+			void* lr = editorData->Items->GetByIndex(ip);
+			fteo::api::TLayer* lrP = (fteo::api::TLayer*) lr;
+			treeView1->Nodes->Add(fteo::NETWrappers::CharToString2(lrP->LayerName));
+		}
+		*/
+	}
+
 	private: void CheckSpatials(fteo::api::TMyContours* editorData, fteo::api::TMyContours* KPTData) {
 
 
@@ -713,7 +736,9 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
 		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
-		Ld->LoadLayers(FteoDBHandle,this->Item_id);
+		fteo::api::TLayers* Layers =  Ld->LoadLayers(FteoDBHandle, this->Item_id);
+		//ListEditorData(Layers);
+		free(Layers);
 	}
 
 	private: System::Void mifÙ‡ÈÎToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

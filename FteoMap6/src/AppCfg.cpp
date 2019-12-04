@@ -136,10 +136,9 @@ bool	TAppOptions::ReadINI()
      using namespace System;
      using namespace Microsoft::Win32;
  RegistryKey^ rk;
- if (!Registry::CurrentUser->OpenSubKey("Software", true)->OpenSubKey("Fixosoft"))
+ if (Registry::CurrentUser->OpenSubKey("Software", true)->OpenSubKey("Fixosoft")->OpenSubKey("fteo")->OpenSubKey(FTEO_VERSION))
  {
 	 rk = Registry::CurrentUser->OpenSubKey("Software", true)->OpenSubKey("Fixosoft")->OpenSubKey("fteo")->OpenSubKey(FTEO_VERSION);
-	 if (!rk) { return false; }
 	 this->SetUserName((System::String^) rk->GetValue("SQLNAME"));
 	 this->SetServer((System::String^) rk->GetValue("server"));
 	 this->SetDBName((System::String^) rk->GetValue("dbname"));

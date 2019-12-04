@@ -562,9 +562,9 @@ netFteo::Spatial::TEntitySpatial^ Loader::LoadContours(isc_db_handle dbHandle, i
 
 
 //Load from table LAYERS and create contour prototype - without populated points
-wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
+TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 {
-	wr_TMyContours^ Result = gcnew wr_TMyContours();
+	//wr_TMyContours^ Result = gcnew wr_TMyContours();
 	TLayers* Layers = new  TLayers();
 	Layers->id = parent_id;
 
@@ -578,8 +578,8 @@ wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 
 	double   LAYER_ID = 0;
 	double   Parent_ID = -1;
-	char     LayerName[25 + 2];
-	char     LAYER_TYPE[25 + 2];
+	char     LayerName[VARCHAR64W+2];
+	char     LAYER_TYPE[VARCHAR64W+2];
 	double   Lot_ID = -1;
 	double   Geometric_Type = -1;
 	
@@ -605,22 +605,26 @@ wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	if (isc_dsql_prepare(status, &FteoTrHandle, &Statement, 0, sel_str, SQL_DIALECT_V6, sqlda))
 	{
 	}
+	free(sel_str);
+
 	sqlda->sqlvar[0].sqldata = (char*)& LAYER_ID;
-	sqlda->sqlvar[0].sqltype = SQL_DOUBLE + 1;   //Почему +1 ????!!!!
+	sqlda->sqlvar[0].sqltype = SQL_DOUBLE + 1;   //why +1 ?
 	sqlda->sqlvar[0].sqllen = sizeof(LAYER_ID);
 	sqlda->sqlvar[0].sqlind = &flag0;
 
 	sqlda->sqlvar[1].sqldata = (char*)& Parent_ID;
-	sqlda->sqlvar[1].sqltype = SQL_DOUBLE + 1;   //Почему +1 ????!!!!
+	sqlda->sqlvar[1].sqltype = SQL_DOUBLE + 1;   
 	sqlda->sqlvar[1].sqllen = sizeof(Parent_ID);
 	sqlda->sqlvar[1].sqlind = &flag1;
 
-	// для varchar достаточно и так:
+	// varchar 
 	sqlda->sqlvar[2].sqldata = LayerName;
+	sqlda->sqlvar[2].sqltype = SQL_TEXT;
 	sqlda->sqlvar[2].sqlind = &flag2;
 
-	// для varchar достаточно и так:
+	//  varchar 
 	sqlda->sqlvar[3].sqldata = LAYER_TYPE;
+	sqlda->sqlvar[3].sqltype = SQL_TEXT;
 	sqlda->sqlvar[3].sqlind = &flag3;
 
 	sqlda->sqlvar[4].sqldata = (char*)& Lot_ID;
@@ -630,13 +634,13 @@ wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 
 	sqlda->sqlvar[5].sqldata = (char*)& Geometric_Type;
 	sqlda->sqlvar[5].sqltype = SQL_DOUBLE + 1;
-	sqlda->sqlvar[5].sqllen = sizeof(Lot_ID);
+	sqlda->sqlvar[5].sqllen = sizeof(Geometric_Type);
 	sqlda->sqlvar[5].sqlind = &flag5;
 
 	if (isc_dsql_execute(status, &FteoTrHandle, &Statement, 1, NULL))
 	{
 	}
-	//free(sel_str);
+	
 
  //335544569 - isc_dsql_error 
 	while ((fetch_stat = isc_dsql_fetch(status, &Statement, SQL_DIALECT_V6, sqlda)) == 0)
@@ -645,8 +649,13 @@ wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 		TLayer* Layer = new TLayer();
 		Layer->Layer_ID = LAYER_ID;
 		Layer->Geometric_Type = Geometric_Type;
-		Layer->LayerName = LayerName;
+		Layer->LayerName = (char*)malloc(sqlda->sqlvar[2].sqllen);
+		strcpy(Layer->LayerName, LayerName);
+		Layer->LayerType = (char*)malloc(sqlda->sqlvar[3].sqllen);
+		strcpy(Layer->LayerType, LAYER_TYPE);
 		Layer->Parent_ID = Parent_ID;
+		Layer->Item_id = Lot_ID;
+		Layers->Items->Add(Layer);
 	}
 	free(sqlda);
 
@@ -656,7 +665,7 @@ wr_TMyContours^ Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	}
 
 
-	return Result;
+	return Layers;
 }
 
 
