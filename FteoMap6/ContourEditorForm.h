@@ -504,7 +504,7 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 		for (pt = editorData->Items->begin(); pt != editorData->Items->end(); pt++)
 		{
 			//      std::advance(pt, 1);  // Increments given iterator it by n elements.
-			treeView1->Nodes->Add(fteo::NETWrappers::CharToString(pt->LayerName));
+		 	treeView1->Nodes->Add(fteo::NETWrappers::CharToString(pt->LayerName) +" "+ fteo::NETWrappers::CharToString(pt->LayerType));
 
 		}
 

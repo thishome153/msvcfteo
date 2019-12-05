@@ -42,11 +42,14 @@ extern isc_tr_handle FteoTrHandle;
 namespace fteo
 {
 
-
-
-
 	namespace firebird
 	{
+		//Firebird varchar presentation struct
+		struct VarChar_64W
+		{
+			short vary_len;
+			char vary_stryng[64 + 2];
+		};
 
 		bool Connect2Base(char* server, char* dbname, char* uname, char* upasswrd);
 		bool DisConnect(isc_db_handle Handle);
@@ -55,7 +58,7 @@ namespace fteo
 		void SQLRequestByField(char* TableName, char* FieldName, isc_db_handle dbHandle);
 		bool LoadParcels(isc_db_handle dbHandle, char* TableName, int CadWorkType);//Загрузка участков
 
-		char* FBArrayToChar(char InArray[]);
+		char* FBArrayToChar(char FireBirdVarChar[]);  //Firebird varchar converting function to null terminated string
 		System::String^ FBArrayToString(char InArray[]);
 		char* ConcatChars(char*& Dest, const char* Begin, const char* Middle, const char* End);
 
@@ -83,11 +86,7 @@ namespace fteo
 
 		};
 
-		struct VarChar_64W
-		{
-			short vary_len;
-			char vary_stryng[64 + 2];
-		};
+
 
 		class wr_IBPP_Database {
 		public:   IBPP::Database DB_ibpp;
