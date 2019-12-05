@@ -154,8 +154,8 @@ namespace FteoDBForms {
 				 this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->toolStripMenuItem2 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-				 this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->îòêðûòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+				 this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->ìîäóëèToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->òî÷êèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->ðåäàêòîðÊîíòóðîâToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -166,6 +166,7 @@ namespace FteoDBForms {
 				 this->ìîäóëèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->sQLTest1ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->toolStripMenuItem4 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+				 this->signFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->ïîìîùüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->AboutMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
@@ -187,7 +188,6 @@ namespace FteoDBForms {
 				 this->treeView1 = (gcnew System::Windows::Forms::TreeView());
 				 this->Mainfrm_contextMenu1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 				 this->òî÷êèToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-				 this->signFileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				 this->statusStrip1->SuspendLayout();
 				 this->menuStrip1->SuspendLayout();
 				 this->toolStrip1->SuspendLayout();
@@ -278,13 +278,6 @@ namespace FteoDBForms {
 				 this->toolStripMenuItem2->Text = L"Ñáðîñ ïîäêëþ÷åíèÿ";
 				 this->toolStripMenuItem2->Click += gcnew System::EventHandler(this, &MainForm::toolStripMenuItem2_Click);
 				 // 
-				 // âûõîäToolStripMenuItem
-				 // 
-				 this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
-				 this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(188, 22);
-				 this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
-				 this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::âûõîäToolStripMenuItem_Click);
-				 // 
 				 // îòêðûòüToolStripMenuItem
 				 // 
 				 this->îòêðûòüToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"îòêðûòüToolStripMenuItem.Image")));
@@ -292,6 +285,13 @@ namespace FteoDBForms {
 				 this->îòêðûòüToolStripMenuItem->Size = System::Drawing::Size(188, 22);
 				 this->îòêðûòüToolStripMenuItem->Text = L"Îòêðûòü";
 				 this->îòêðûòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::îòêðûòüToolStripMenuItem_Click);
+				 // 
+				 // âûõîäToolStripMenuItem
+				 // 
+				 this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
+				 this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(188, 22);
+				 this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
+				 this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::âûõîäToolStripMenuItem_Click);
 				 // 
 				 // ìîäóëèToolStripMenuItem1
 				 // 
@@ -356,7 +356,7 @@ namespace FteoDBForms {
 						 this->toolStripMenuItem4, this->signFileToolStripMenuItem
 				 });
 				 this->ìîäóëèToolStripMenuItem->Name = L"ìîäóëèToolStripMenuItem";
-				 this->ìîäóëèToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+				 this->ìîäóëèToolStripMenuItem->Size = System::Drawing::Size(134, 22);
 				 this->ìîäóëèToolStripMenuItem->Text = L"Debug";
 				 // 
 				 // sQLTest1ToolStripMenuItem
@@ -370,6 +370,13 @@ namespace FteoDBForms {
 				 this->toolStripMenuItem4->Name = L"toolStripMenuItem4";
 				 this->toolStripMenuItem4->Size = System::Drawing::Size(135, 22);
 				 this->toolStripMenuItem4->Text = L"1";
+				 // 
+				 // signFileToolStripMenuItem
+				 // 
+				 this->signFileToolStripMenuItem->Name = L"signFileToolStripMenuItem";
+				 this->signFileToolStripMenuItem->Size = System::Drawing::Size(135, 22);
+				 this->signFileToolStripMenuItem->Text = L"Sign file";
+				 this->signFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::SignFileToolStripMenuItem_Click);
 				 // 
 				 // ïîìîùüToolStripMenuItem
 				 // 
@@ -565,13 +572,6 @@ namespace FteoDBForms {
 				 this->òî÷êèToolStripMenuItem1->Text = L"Òî÷êè";
 				 this->òî÷êèToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MainForm::òî÷êèToolStripMenuItem1_Click);
 				 // 
-				 // signFileToolStripMenuItem
-				 // 
-				 this->signFileToolStripMenuItem->Name = L"signFileToolStripMenuItem";
-				 this->signFileToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-				 this->signFileToolStripMenuItem->Text = L"Sign file";
-				 this->signFileToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::SignFileToolStripMenuItem_Click);
-				 // 
 				 // MainForm
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -585,6 +585,7 @@ namespace FteoDBForms {
 				 this->Name = L"MainForm";
 				 this->Text = L"MainForm";
 				 this->Activated += gcnew System::EventHandler(this, &MainForm::MainForm_Activated);
+				 this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MainForm::MainForm_FormClosing);
 				 this->Shown += gcnew System::EventHandler(this, &MainForm::MainForm_Shown);
 				 this->Validating += gcnew System::ComponentModel::CancelEventHandler(this, &MainForm::MainForm_Validating_1);
 				 this->statusStrip1->ResumeLayout(false);
@@ -1039,5 +1040,8 @@ namespace FteoDBForms {
 	private: System::Void SignFileToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
-	};
+	private: System::Void MainForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+		Disconnect();
+	}
+};
 }

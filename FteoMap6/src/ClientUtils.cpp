@@ -564,24 +564,22 @@ netFteo::Spatial::TEntitySpatial^ Loader::LoadContours(isc_db_handle dbHandle, i
 //Load from table LAYERS and create contour prototype - without populated points
 TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 {
-	//wr_TMyContours^ Result = gcnew wr_TMyContours();
 	TLayers* Layers = new  TLayers();
 	Layers->id = parent_id;
-
-	// TODO need update SDk baseclassssesss
-	//Result->API->Parent_id = parent_id;
-	 
 	char* sel_str;
-	//TODO:
-	ConcatChars(sel_str, "select LAYER_ID, Parent_ID, LayerName, LAYER_TYPE, Lot_ID, Geometric_Type from LAYERS where LOT_ID ", CadWorkTypeToChar(parent_id), " order by LAYERS.LAYER_ORDER asc ");
-
+	// Select all records:
+	//ConcatChars(sel_str, "select LAYER_ID, Parent_ID, LayerName, Lot_ID, Geometric_Type, LAYER_TYPE from LAYERS where LOT_ID", CadWorkTypeToChar(FP_ZERO), " order by LAYERS.LAYER_ORDER asc ");
+	// Select for id
+	ConcatChars(sel_str, "select LAYER_ID, Parent_ID, LayerName, Lot_ID, Geometric_Type, LAYER_TYPE from LAYERS where LOT_ID", CadWorkTypeToChar(parent_id), " order by LAYERS.LAYER_ORDER asc ");
+	short   FieldsCount = 6;
 
 	double   LAYER_ID = 0;
 	double   Parent_ID = -1;
-	char     LayerName[VARCHAR64W+2];
-	char     LAYER_TYPE[VARCHAR64W+2];
+	VarChar_64W LayerName;
+	VarChar_64W LAYER_TYPE;
 	double   Lot_ID = -1;
 	double   Geometric_Type = -1;
+
 	
 
 	int				  RecCount = 0;
@@ -593,14 +591,21 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	short               flag0 = 0;  short flag3 = 0;
 	short               flag1 = 0;  short flag4 = 0;
 	short               flag2 = 0;  short flag5 = 0;
+
+	sqlda = (XSQLDA*)malloc(XSQLDA_LENGTH(FieldsCount)); //6 - because we`ll select six fields
+	sqlda->sqln = FieldsCount;
+	//sqlda->sqld = 6; // dont set up!
+	sqlda->version = 1;
+
 	//   Allocate and prepare the select statement.
 	if (isc_dsql_allocate_statement(status, &dbHandle, &Statement))
 	{
+		//errror:
+		free(sqlda);
+		return NULL;
 	}
-	sqlda = (XSQLDA*)malloc(XSQLDA_LENGTH(6)); //6 - because we`ll select six fields
-	sqlda->sqln = 6;
-	sqlda->sqld = 6;
-	sqlda->version = 1;
+
+
 
 	if (isc_start_transaction(status, &trans, 1, &dbHandle, 0, NULL))
 	{
@@ -616,32 +621,37 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 	sqlda->sqlvar[0].sqltype = SQL_DOUBLE + 1;   //why +1 ?
 	sqlda->sqlvar[0].sqllen = sizeof(LAYER_ID);
 	sqlda->sqlvar[0].sqlind = &flag0;
-
+	
 	sqlda->sqlvar[1].sqldata = (char*)& Parent_ID;
 	sqlda->sqlvar[1].sqltype = SQL_DOUBLE + 1;   
 	sqlda->sqlvar[1].sqllen = sizeof(Parent_ID);
 	sqlda->sqlvar[1].sqlind = &flag1;
-
+	
 	// varchar 
-	sqlda->sqlvar[2].sqldata = LayerName;
-	sqlda->sqlvar[2].sqltype = SQL_TEXT;
+	sqlda->sqlvar[2].sqldata = (char*)& LayerName;
+	sqlda->sqlvar[2].sqltype = SQL_VARYING + 1;
 	sqlda->sqlvar[2].sqlind = &flag2;
 
-	//  varchar 
-	sqlda->sqlvar[3].sqldata = LAYER_TYPE;
-	sqlda->sqlvar[3].sqltype = SQL_TEXT;
+	sqlda->sqlvar[3].sqldata = (char*)& Lot_ID;
+	sqlda->sqlvar[3].sqltype = SQL_DOUBLE + 1;
+	sqlda->sqlvar[3].sqllen = sizeof(Lot_ID);
 	sqlda->sqlvar[3].sqlind = &flag3;
 
-	sqlda->sqlvar[4].sqldata = (char*)& Lot_ID;
-	sqlda->sqlvar[4].sqltype = SQL_DOUBLE + 1;   
-	sqlda->sqlvar[4].sqllen = sizeof(Lot_ID);
+	sqlda->sqlvar[4].sqldata = (char*)& Geometric_Type;
+	sqlda->sqlvar[4].sqltype = SQL_DOUBLE + 1;
+	sqlda->sqlvar[4].sqllen = sizeof(Geometric_Type);
 	sqlda->sqlvar[4].sqlind = &flag4;
 
-	sqlda->sqlvar[5].sqldata = (char*)& Geometric_Type;
-	sqlda->sqlvar[5].sqltype = SQL_DOUBLE + 1;
-	sqlda->sqlvar[5].sqllen = sizeof(Geometric_Type);
+	
+	//  varchar 
+	sqlda->sqlvar[5].sqldata = (char*)& LAYER_TYPE;
+	sqlda->sqlvar[5].sqltype = SQL_VARYING + 1;
 	sqlda->sqlvar[5].sqlind = &flag5;
+	
 
+
+	
+	
 	if (isc_dsql_execute(status, &trans, &Statement, 1, NULL))
 	{
 	}
@@ -653,11 +663,11 @@ TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 		RecCount++;
 		TLayer* Layer = new TLayer();
 		Layer->Layer_ID = LAYER_ID;
+		Layer->LayerName = (char*)malloc(LayerName.vary_len);//sqlda->sqlvar[2].sqllen);
+		strcpy(Layer->LayerName, LayerName.vary_stryng);
+		Layer->LayerType = (char*)malloc(LAYER_TYPE.vary_len);
+		strcpy(Layer->LayerType, LAYER_TYPE.vary_stryng);
 		Layer->Geometric_Type = Geometric_Type;
-		Layer->LayerName = (char*)malloc(sqlda->sqlvar[2].sqllen);
-		strcpy(Layer->LayerName, LayerName);
-		Layer->LayerType = (char*)malloc(sqlda->sqlvar[3].sqllen);
-		strcpy(Layer->LayerType, LAYER_TYPE);
 		Layer->Parent_ID = Parent_ID;
 		Layer->Item_id = Lot_ID;
 		Layers->Items->Add(Layer);

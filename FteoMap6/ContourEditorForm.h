@@ -498,7 +498,7 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 
 	private: void ListEditorData(fteo::api::TLayers* editorData) {
 		if (editorData->Items->empty()) return;
-
+		treeView1->Nodes->Clear();
 		std::list<fteo::api::TLayer>::const_iterator pt = editorData->Items->begin();
 
 		for (pt = editorData->Items->begin(); pt != editorData->Items->end(); pt++)
@@ -736,9 +736,23 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
 		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
-		fteo::api::TLayers* Layers =  Ld->LoadLayers(FteoDBHandle, this->Item_id);
-		//ListEditorData(Layers);
-		//free(Layers);
+		fteo::api::TLayers* Layers = Ld->LoadLayers(FteoDBHandle, this->Item_id);
+		// let load and stress function:
+		/*
+		fteo::api::TMyList<fteo::api::TLayers>* lst = new fteo::api::TMyList<fteo::api::TLayers>();
+		for (int pt = 0; pt <= 100; pt++)
+		{
+			fteo::api::TLayers* Layers = Ld->LoadLayers(FteoDBHandle, this->Item_id);
+			lst->Add(Layers);
+			delete(Layers);
+		}
+		int Count = lst->Count();
+		int Count_Item0 = lst->GetByIndex(0)->ItemsCount();
+		delete(lst);
+		*/
+
+		ListEditorData(Layers);
+		free(Layers);
 	}
 
 	private: System::Void mifÙ‡ÈÎToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

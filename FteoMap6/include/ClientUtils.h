@@ -27,9 +27,10 @@
 //Field sizes:
 #define    LOTTABLE_ACRHNUMLEN     16
 #define    LOTTABLE_LOTNAME        64
-#define	   VARCHAR64W			64
 #define    LOTTABLE_KN			   25
 #define    LOTTABLE_DKKPOSITION    128
+
+/* This macro is used to declare structures representing SQL VARCHAR types */
 #define SQL_VARCHAR(len) struct {short vary_length; char vary_string[(len)+1];}
 
 
@@ -66,6 +67,8 @@ namespace fteo
 		//---------------Firebird native api loader: free of depend of some libs (soci, ibpp etc.), but firebird api only------------------------------------
 		public ref class Loader
 		{
+			
+
 		public:  Loader();
 				 System::String^ LoaderName;
 
@@ -80,6 +83,11 @@ namespace fteo
 
 		};
 
+		struct VarChar_64W
+		{
+			short vary_len;
+			char vary_stryng[64 + 2];
+		};
 
 		class wr_IBPP_Database {
 		public:   IBPP::Database DB_ibpp;
