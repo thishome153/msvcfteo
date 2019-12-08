@@ -82,7 +82,8 @@ namespace fteo
 				 wr_TWorks^ LoadCadWorks(isc_db_handle dbHandle, int CWType);//Загрузить кадастровые работы
 				 wr_TMyPoints^ LoadPoints(isc_db_handle dbHandle, int parent_id);//Загрузить точки
 				 netFteo::Spatial::TEntitySpatial^ LoadContours(isc_db_handle dbHandle, int parent_id);
-				 TLayers* LoadLayers(isc_db_handle dbHandle, int parent_id);//Load LAYER , AREA, OPORA
+				 TDataRecords<fteo::api::TLayer>* LoadLayers(isc_db_handle dbHandle, int parent_id);//Load LAYER , AREA, OPORA
+				 TDataRecords<fteo::api::TAreaRecord>* LoadAreaRecords(isc_db_handle dbHandle, int Lot_id);//Load AREA
 
 		};
 

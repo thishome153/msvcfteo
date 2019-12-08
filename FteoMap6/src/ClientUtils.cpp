@@ -575,9 +575,9 @@ namespace fteo
 
 
 		//Load from table LAYERS and create contour prototype - without populated points
-		TLayers* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
+		TDataRecords<TLayer>* Loader::LoadLayers(isc_db_handle dbHandle, int parent_id)
 		{
-			TLayers* Layers = new  TLayers();
+			TDataRecords<TLayer>* Layers = new  TDataRecords <TLayer>();
 			Layers->id = parent_id;
 			char* sel_str;
 			// Select all records:
@@ -616,8 +616,6 @@ namespace fteo
 				return NULL;
 			}
 
-
-
 			if (isc_start_transaction(status, &trans, 1, &dbHandle, 0, NULL))
 			{
 				//ERREXIT(status, 1)
@@ -653,20 +651,14 @@ namespace fteo
 			sqlda->sqlvar[4].sqllen = sizeof(Geometric_Type);
 			sqlda->sqlvar[4].sqlind = &flag4;
 
-
 			//  varchar 
 			sqlda->sqlvar[5].sqldata = (char*)& LAYER_TYPE;
 			sqlda->sqlvar[5].sqltype = SQL_VARYING + 1;
 			sqlda->sqlvar[5].sqlind = &flag5;
 
-
-
-
-
 			if (isc_dsql_execute(status, &trans, &Statement, 1, NULL))
 			{
 			}
-
 
 			//335544569 - isc_dsql_error 
 			while ((fetch_stat = isc_dsql_fetch(status, &Statement, SQL_DIALECT_V6, sqlda)) == 0)
@@ -694,7 +686,121 @@ namespace fteo
 			return Layers;
 		}
 
+		TDataRecords<fteo::api::TAreaRecord>* Loader::LoadAreaRecords(isc_db_handle dbHandle, int Lot_id)
+		{
 
+			TDataRecords<TAreaRecord>* Layers = new  TDataRecords <TAreaRecord>();
+			Layers->id = Lot_id;
+			char* sel_str;
+			ConcatChars(sel_str, "select AREA_ID, LOT_ID, PARENT_ID, LAYER_ID, ORDER_AREA, POINT_ID, OBJ from AREA where LOT_ID", CadWorkTypeToChar(Lot_id), " order by AREA.ORDER_AREA asc ");
+			short   FieldsCount = 7;
+			//Fields variables
+			double   AREA_ID = 0;
+			double   LOT_ID = -1;
+			double   Parent_ID = -1;
+			double   LAYER_ID = 0;
+			double   ORDER_AREA = 0;
+			double   Point_ID = -1;
+			VarChar_64W OBJ;
+
+			double   Geometric_Type = -1;
+
+			int				  RecCount = 0;
+			long                fetch_stat;
+			isc_stmt_handle     Statement = NULL;
+			ISC_STATUS_ARRAY    status;
+			isc_tr_handle       trans = NULL;  // local transaction handle 
+			XSQLDA* sqlda;						// sqldata adapter
+			short               flag0 = 0;  short flag3 = 0; short flag6 = 0;
+			short               flag1 = 0;  short flag4 = 0;
+			short               flag2 = 0;  short flag5 = 0;
+
+			sqlda = (XSQLDA*)malloc(XSQLDA_LENGTH(FieldsCount));
+			sqlda->sqln = FieldsCount;
+			//sqlda->sqld = 6; // dont set up!
+			sqlda->version = 1;
+
+			//   Allocate and prepare the select statement.
+			if (isc_dsql_allocate_statement(status, &dbHandle, &Statement))
+			{
+				//errror:
+				free(sqlda);
+				return NULL;
+			}
+
+			if (isc_start_transaction(status, &trans, 1, &dbHandle, 0, NULL))
+			{
+				//ERREXIT(status, 1)
+			}
+
+			if (isc_dsql_prepare(status, &trans, &Statement, 0, sel_str, SQL_DIALECT_V6, sqlda))
+			{
+			}
+			free(sel_str);
+
+			sqlda->sqlvar[0].sqldata = (char*)& AREA_ID;
+			sqlda->sqlvar[0].sqltype = SQL_DOUBLE + 1;   //why +1 ?
+			sqlda->sqlvar[0].sqllen = sizeof(AREA_ID);
+			sqlda->sqlvar[0].sqlind = &flag0;
+
+			sqlda->sqlvar[1].sqldata = (char*)& LOT_ID;
+			sqlda->sqlvar[1].sqltype = SQL_DOUBLE + 1;
+			sqlda->sqlvar[1].sqllen = sizeof(LOT_ID);
+			sqlda->sqlvar[1].sqlind = &flag1;
+
+			sqlda->sqlvar[2].sqldata = (char*)& Parent_ID;
+			sqlda->sqlvar[2].sqltype = SQL_DOUBLE + 1;
+			sqlda->sqlvar[2].sqllen = sizeof(Parent_ID);
+			sqlda->sqlvar[2].sqlind = &flag2;
+
+			sqlda->sqlvar[3].sqldata = (char*)& LAYER_ID;
+			sqlda->sqlvar[3].sqltype = SQL_DOUBLE + 1;
+			sqlda->sqlvar[3].sqllen = sizeof(LAYER_ID);
+			sqlda->sqlvar[3].sqlind = &flag3;
+
+			sqlda->sqlvar[4].sqldata = (char*)& ORDER_AREA;
+			sqlda->sqlvar[4].sqltype = SQL_DOUBLE + 1;
+			sqlda->sqlvar[4].sqllen = sizeof(ORDER_AREA);
+			sqlda->sqlvar[4].sqlind = &flag4;
+
+			sqlda->sqlvar[5].sqldata = (char*)& Point_ID;
+			sqlda->sqlvar[5].sqltype = SQL_DOUBLE + 1;
+			sqlda->sqlvar[5].sqllen = sizeof(Point_ID);
+			sqlda->sqlvar[5].sqlind = &flag4;
+
+			//  varchar 
+			sqlda->sqlvar[6].sqldata = (char*)& OBJ;
+			sqlda->sqlvar[6].sqltype = SQL_VARYING + 1;
+			sqlda->sqlvar[6].sqlind = &flag6;
+
+			if (isc_dsql_execute(status, &trans, &Statement, 1, NULL))
+			{
+			}
+
+			//335544569 - isc_dsql_error 
+			while ((fetch_stat = isc_dsql_fetch(status, &Statement, SQL_DIALECT_V6, sqlda)) == 0)
+			{
+				RecCount++;
+				TAreaRecord* Layer = new TAreaRecord();
+				Layer->Area_ID = AREA_ID;
+				Layer->Item_id = LOT_ID;
+				Layer->Order_Area = ORDER_AREA;
+				Layer->Point_id = Point_ID;
+				Layer->Layer_ID = LAYER_ID;
+				//Layer->LayerType = (char*)malloc(LAYER_TYPE.vary_len);
+				//strcpy(Layer->LayerType, LAYER_TYPE.vary_stryng);
+				Layers->Items->Add(Layer);
+			}
+			free(sqlda);
+
+			/* Free statement handle. */
+			if (isc_dsql_free_statement(status, &Statement, DSQL_close))
+			{
+			}
+
+			isc_commit_transaction(status, &trans);
+			return Layers;
+		}
 
 
 		int Loader::LoadParcels3(isc_db_handle dbHandle)

@@ -496,7 +496,7 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 	}
 }
 
-	private: void ListEditorData(fteo::api::TLayers* editorData) {
+	private: void ListEditorData(fteo::api::TDataRecords<fteo::api::TLayer>* editorData) {
 		if (editorData->Items->empty()) return;
 		treeView1->Nodes->Clear();
 		std::list<fteo::api::TLayer>::const_iterator pt = editorData->Items->begin();
@@ -736,7 +736,8 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
 		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
-		fteo::api::TLayers* Layers = Ld->LoadLayers(FteoDBHandle, this->Item_id);
+		fteo::api::TDataRecords< fteo::api::TLayer>* Layers = Ld->LoadLayers(FteoDBHandle, this->Item_id);
+		fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords = Ld->LoadAreaRecords(FteoDBHandle, this->Item_id);
 		// let load and stress function:
 		/*
 		fteo::api::TMyList<fteo::api::TLayers>* lst = new fteo::api::TMyList<fteo::api::TLayers>();
