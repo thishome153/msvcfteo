@@ -733,11 +733,15 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 		this->KPT_OpenCSVTechnoCAD();
 	}
 
+			 private: sys
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
 		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
+		fteo::NET::wr_TMyPoints^ AllPoints = Ld->LoadPoints(FteoDBHandle, this->Item_id);
 		fteo::api::TDataRecords< fteo::api::TLayer>* Layers = Ld->LoadLayers(FteoDBHandle, this->Item_id);
 		fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords = Ld->LoadAreaRecords(FteoDBHandle, this->Item_id);
+		//Now Build feature from points, layers:
+
 		// let load and stress function:
 		/*
 		fteo::api::TMyList<fteo::api::TLayers>* lst = new fteo::api::TMyList<fteo::api::TLayers>();
