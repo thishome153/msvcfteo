@@ -787,8 +787,8 @@ namespace fteo
 				Layer->Order_Area = ORDER_AREA;
 				Layer->Point_id = Point_ID;
 				Layer->Layer_ID = LAYER_ID;
-				//Layer->LayerType = (char*)malloc(LAYER_TYPE.vary_len);
-				//strcpy(Layer->LayerType, LAYER_TYPE.vary_stryng);
+				Layer->OBJ = (char*)malloc(OBJ.vary_len);
+				strcpy(Layer->OBJ, OBJ.vary_stryng);
 				Layers->Items->Add(Layer);
 			}
 			free(sqlda);

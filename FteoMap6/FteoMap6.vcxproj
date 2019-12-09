@@ -131,7 +131,7 @@
     <LibraryPath>D:\Docs\Design\c++\Fixosoft SDK\lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>C:\Program Files\Fixosoft\fteo\msvc\$(Configuration)</OutDir>
+    <OutDir>\\10.66.77.4\Obmen\SOFT\Fixosoft\fteo\msvc</OutDir>
     <IntDir>C:\Program Files\Fixosoft\fteo\msvc\tmp\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
