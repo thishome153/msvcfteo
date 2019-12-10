@@ -829,6 +829,7 @@ namespace fteo
 
 		//Точки могут быть привязаны к полю ID_Block или Parent_id в разных случаях (ЕЗП или нет)
 		//Поэтому этот метод загрузчика имя поля для выборки имеет как параметр FieldName
+		
 		wr_TMyPoints^ IBPPDriver::LoadPoints(isc_db_handle dbHandle, char* FieldName, int FieldValue)
 		{
 			if (this->ibpp->DB_ibpp->Connected())
@@ -839,11 +840,7 @@ namespace fteo
 				tr1->Start();
 				IBPP::Statement st1 = IBPP::StatementFactory(this->ibpp->DB_ibpp, tr1);
 				char* sel_str; char* sel_str2;
-				/*
-				OPORA_ID  X			OBJ			STRT_PTS		Y
-				Z			NUM STATUS_OPORA		DESCRIPTION    PLACEDESCRIPTION
-				ID_BLOCK  OPORA_GID   PRECISION_  QUALITY		   OLDX
-				OLDY		OLDZ		POINTCODE   SK_KLS_ID	   PARENT_ID  */
+
 				ConcatChars(sel_str2, "select OPORA_ID,NUM ,x ,y,z ,PRECISION_,STATUS_OPORA , DESCRIPTION from OPORA ", "where ", FieldName);
 				ConcatChars(sel_str, sel_str2, CadWorkTypeToChar(FieldValue), " order by OPORA_ID asc ");
 				st1->Prepare(sel_str);
@@ -873,6 +870,8 @@ namespace fteo
 			}
 			return nullptr;
 		}
+		
+
 
 		//Загрузка входящих объектов
 		bool IBPPDriver::LoadChilds(isc_db_handle dbHandle, wr_TWork^ Parent) {

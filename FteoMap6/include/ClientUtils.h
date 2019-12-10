@@ -70,7 +70,7 @@ namespace fteo
 		//---------------Firebird native api loader: free of depend of some libs (soci, ibpp etc.), but firebird api only------------------------------------
 		public ref class Loader
 		{
-			
+
 
 		public:  Loader();
 				 System::String^ LoaderName;
@@ -100,10 +100,12 @@ namespace fteo
 		public: wr_IBPP_Database* ibpp;
 				IBPPDriver(fteo::TAppOptions^ cfg_);
 				void CloseData();
-		public: wr_TMyPoints^ LoadPoints(isc_db_handle dbHandle, char* FieldName, int FieldValue); //Загрузить точки, параметр запрооса - FieldName
-		//       bool SavePoint (isc_db_handle dbHandle, wr_TMyPoint  ^point );  //Сохранить (update) точку
-		//       bool SavePoints(isc_db_handle dbHandle, wr_TMyPoints ^points); //Сохранить (update) точки
-				bool LoadChilds(isc_db_handle dbHandle, wr_TWork^ Parent); //Загрузить входящие участки/Окс`ы и всё входящее (child = 1)
+		public:
+			wr_TMyPoints^ LoadPoints(isc_db_handle dbHandle, char* FieldName, int FieldValue); //Загрузить точки, параметр запрооса - FieldName
+			bool LoadChilds(isc_db_handle dbHandle, wr_TWork^ Parent); //Загрузить входящие участки/Окс`ы и всё входящее (child = 1)
+	  //       bool SavePoint (isc_db_handle dbHandle, wr_TMyPoint  ^point );  //Сохранить (update) точку
+	  //       bool SavePoints(isc_db_handle dbHandle, wr_TMyPoints ^points); //Сохранить (update) точки
+
 
 		};
 

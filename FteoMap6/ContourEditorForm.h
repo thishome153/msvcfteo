@@ -507,16 +507,14 @@ namespace FteoDBForms
 			treeView1->Nodes->Add(fteo::NETWrappers::CharToString(pt->LayerName) + " " + fteo::NETWrappers::CharToString(pt->LayerType));
 
 		}
+	}
 
-		/*
-		for (int ip = 0; ip <= editorData->Items->size() - 1; ip++)
-		{
-			//TODO: Access to list items
-			void* lr = editorData->Items->GetByIndex(ip);
-			fteo::api::TLayer* lrP = (fteo::api::TLayer*) lr;
-			treeView1->Nodes->Add(fteo::NETWrappers::CharToString2(lrP->LayerName));
-		}
-		*/
+	private: void ListEditorDataES(netFteo::Spatial::TEntitySpatial^ editorData) {
+		if ((!editorData) ||
+			(editorData->EmptySpatial)) return;
+
+		treeView1->Nodes->Clear();
+		netFteo::ObjectLister::ListEntSpat(treeView1->Nodes->Add("ES->Definition"), editorData);
 	}
 
 	private: void CheckSpatials(fteo::api::TMyContours* editorData, fteo::api::TMyContours* KPTData) {
@@ -734,7 +732,64 @@ namespace FteoDBForms
 	}
 
 
-	private: netFteo::Spatial::TMyPolygon^ BuildPolygon(fteo::api::TPoints* SourcePoints, fteo::api::TDataRecords< fteo::api::TLayer>* Layers, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
+
+
+	private: netFteo::Spatial::TRing^ BuildRing(fteo::api::TPoints* SourcePoints, int  Layer_ID, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
+	{
+		netFteo::Spatial::TRing^ ResultRing = gcnew netFteo::Spatial::TRing();
+		std::list<fteo::api::TAreaRecord>::const_iterator at = AreaRecords->Items->begin();
+
+		for (at = AreaRecords->Items->begin(); at != AreaRecords->Items->end(); at++)
+		{
+			if (Layer_ID == at->Layer_ID)
+			{
+				fteo::api::TMyPoint* src_Pt = SourcePoints->getpoint(at->Point_id);
+				if (src_Pt)
+				{
+					netFteo::Spatial::TPoint^ pt = gcnew netFteo::Spatial::TPoint(src_Pt->NewOrd->x, src_Pt->NewOrd->y, src_Pt->NewOrd->z);
+					pt->Definition = fteo::NETWrappers::CharToString(src_Pt->Name);
+					ResultRing->AddPoint(pt);
+				}
+			}
+		}
+		return ResultRing;
+	}
+
+	private: netFteo::Spatial::TEntitySpatial^ BuildES(fteo::api::TPoints* SourcePoints, fteo::api::TDataRecords< fteo::api::TLayer>* Layers, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
+	{
+		netFteo::Spatial::TEntitySpatial^ ES = gcnew netFteo::Spatial::TEntitySpatial();
+		//ES->id ???
+		//netFteo::Spatial::TMyPolygon^ ResultPoly = gcnew netFteo::Spatial::TMyPolygon();
+
+		std::list<fteo::api::TLayer>::const_iterator lt = Layers->Items->begin();
+
+		for (lt = Layers->Items->begin(); lt != Layers->Items->end(); lt++)
+		{
+			/*
+			if (lt->Geometric_Type == 1) //here polygon of fteo
+			{
+				if (strcmp(lt->LayerType, "OUT") == 0) // out ring
+				{
+					ResultPoly->ImportRing(BuildRing(SourcePoints, lt->Layer_ID, AreaRecords));
+					ResultPoly->Definition = fteo::NETWrappers::CharToString(lt->LayerName);
+					ResultPoly->id = lt->Layer_ID; //
+				}
+
+				//TODO: test here incoming child rings
+				if (strcmp(lt->LayerType, "IN") == 0) // child ring
+				{
+					if (ResultPoly->id == lt->ParentLayer_ID) // if child is for this polygon
+						ResultPoly->Childs->Add(BuildRing(SourcePoints, lt->Layer_ID, AreaRecords));
+				}
+			}
+			*/
+			//Check already :
+			ES->Add(BuildPolygon(lt->Layer_ID, SourcePoints, Layers, AreaRecords));
+		}
+		return ES;
+	}
+
+	private: netFteo::Spatial::TMyPolygon^ BuildPolygon(int Feature_id,fteo::api::TPoints* SourcePoints, fteo::api::TDataRecords< fteo::api::TLayer>* Layers, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
 	{
 		netFteo::Spatial::TMyPolygon^ ResultPoly = gcnew netFteo::Spatial::TMyPolygon();
 
@@ -742,30 +797,23 @@ namespace FteoDBForms
 
 		for (lt = Layers->Items->begin(); lt != Layers->Items->end(); lt++)
 		{
-			if (lt->Geometric_Type == 1)
-			{
-				//here polygon of fteo
-				std::list<fteo::api::TAreaRecord>::const_iterator at = AreaRecords->Items->begin();
-
-				for (at = AreaRecords->Items->begin(); at != AreaRecords->Items->end(); at++)
+			if (lt->Geometric_Type == 1) //here polygon of fteo
+				if (lt->Layer_ID == Feature_id)
 				{
-					if (lt->Layer_ID == at->Layer_ID)
+					if (strcmp(lt->LayerType, "OUT") == 0) // out ring
 					{
-						fteo::api::TMyPoint* src_Pt = SourcePoints->getpoint(at->Point_id);
-						if (src_Pt)
-						{
-							netFteo::Spatial::TPoint^ pt = gcnew netFteo::Spatial::TPoint(src_Pt->NewOrd->x, src_Pt->NewOrd->y, src_Pt->NewOrd->z);
-							pt->Definition = fteo::NETWrappers::CharToString(src_Pt->Name);
-							ResultPoly->AddPoint(pt);
-						}
-						/*
-						int trapMe = 0;
-						SourcePoints->getpoint(at->Point_id);
-						*/
+						ResultPoly->ImportRing(BuildRing(SourcePoints, lt->Layer_ID, AreaRecords));
+						ResultPoly->Definition = fteo::NETWrappers::CharToString(lt->LayerName);
+						ResultPoly->id = lt->Layer_ID; //
+					}
+
+					//TODO: test here incoming child rings
+					if (strcmp(lt->LayerType, "IN") == 0) // child ring
+					{
+						if (lt->ParentLayer_ID == Feature_id) // if child is for this polygon
+							ResultPoly->Childs->Add(BuildRing(SourcePoints, lt->Layer_ID, AreaRecords));
 					}
 				}
-
-			}
 		}
 		return ResultPoly;
 	}
@@ -790,9 +838,10 @@ namespace FteoDBForms
 		delete(lst);
 		*/
 
-		netFteo::Spatial::TMyPolygon^ Polygon = BuildPolygon(Points, Layers, AreaRecords);
+		netFteo::Spatial::TEntitySpatial^ ES = BuildES(Points, Layers, AreaRecords);
 		//netFteo::ObjectLister::ListEntSpat()
-		ListEditorData(Layers);
+		//ListEditorData(Layers);
+		ListEditorDataES(ES);
 		free(Layers);
 	}
 
