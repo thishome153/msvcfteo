@@ -54,9 +54,9 @@ SAMPLEDLL_EXPORTS extern "C"
 	 return cppPoint; // Заглушка
   }
 
-  DLL_EXPORTABLE fteo::api::TMyPoints *CheckInterSect2(fteo::api::TMyContours src, fteo::api::TMyContours checkers)
+  DLL_EXPORTABLE fteo::api::TPoints *CheckInterSect2(fteo::api::TMyContours src, fteo::api::TMyContours checkers)
   {
-    fteo::api::TMyPoints* res = new fteo::api::TMyPoints();
+    fteo::api::TPoints* res = new fteo::api::TPoints();
    return res;
   }
 
@@ -68,7 +68,7 @@ SAMPLEDLL_EXPORTS extern "C"
   }
 
   //Exportable types from library
-  DLL_EXPORTABLE fteo::api::TMyPoints *tmypoints;
+  DLL_EXPORTABLE fteo::api::TPoints *tmypoints;
   DLL_EXPORTABLE fteo::api::TMyPoint *point;
   DLL_EXPORTABLE fteo::api::TMyContours *contours;
 
