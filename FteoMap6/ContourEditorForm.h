@@ -487,14 +487,14 @@ namespace FteoDBForms
 		}
 	}
 
-private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
-	if (editorData)
-	{
-		fteo::NET::Lister^ lstr = gcnew fteo::NET::Lister();
-	//	lstr->ListContours(treeView1, editorData);
-		UpdateKPTinfo();
+	private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
+		if (editorData)
+		{
+			fteo::NET::Lister^ lstr = gcnew fteo::NET::Lister();
+			//	lstr->ListContours(treeView1, editorData);
+			UpdateKPTinfo();
+		}
 	}
-}
 
 	private: void ListEditorData(fteo::api::TDataRecords<fteo::api::TLayer>* editorData) {
 		if (editorData->Items->empty()) return;
@@ -504,7 +504,7 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 		for (pt = editorData->Items->begin(); pt != editorData->Items->end(); pt++)
 		{
 			//      std::advance(pt, 1);  // Increments given iterator it by n elements.
-		 	treeView1->Nodes->Add(fteo::NETWrappers::CharToString(pt->LayerName) +" "+ fteo::NETWrappers::CharToString(pt->LayerType));
+			treeView1->Nodes->Add(fteo::NETWrappers::CharToString(pt->LayerName) + " " + fteo::NETWrappers::CharToString(pt->LayerType));
 
 		}
 
@@ -543,7 +543,7 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 					 // lstr->ListPointsList(treeView1,  resPoints);
 
 		*/
-		fteo::api::TMyPoints* resPoints = new fteo::api::TMyPoints();
+		fteo::api::TPoints* resPoints = new fteo::api::TPoints();
 
 		for (int i = 0; i <= KPTData->Contour->Count() - 1; i++)
 		{
@@ -733,9 +733,47 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 		this->KPT_OpenCSVTechnoCAD();
 	}
 
+
+	private: netFteo::Spatial::TMyPolygon^ BuildPolygon(fteo::api::TPoints* SourcePoints, fteo::api::TDataRecords< fteo::api::TLayer>* Layers, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
+	{
+		netFteo::Spatial::TMyPolygon^ ResultPoly = gcnew netFteo::Spatial::TMyPolygon();
+
+		std::list<fteo::api::TLayer>::const_iterator lt = Layers->Items->begin();
+
+		for (lt = Layers->Items->begin(); lt != Layers->Items->end(); lt++)
+		{
+			if (lt->Geometric_Type == 1)
+			{
+				//here polygon of fteo
+				std::list<fteo::api::TAreaRecord>::const_iterator at = AreaRecords->Items->begin();
+
+				for (at = AreaRecords->Items->begin(); at != AreaRecords->Items->end(); at++)
+				{
+					if (lt->Layer_ID == at->Layer_ID)
+					{
+						fteo::api::TMyPoint* src_Pt = SourcePoints->getpoint(at->Point_id);
+						if (src_Pt)
+						{
+							netFteo::Spatial::TPoint^ pt = gcnew netFteo::Spatial::TPoint(src_Pt->NewOrd->x, src_Pt->NewOrd->y, src_Pt->NewOrd->z);
+							pt->Definition = fteo::NETWrappers::CharToString(src_Pt->Name);
+							ResultPoly->AddPoint(pt);
+						}
+						/*
+						int trapMe = 0;
+						SourcePoints->getpoint(at->Point_id);
+						*/
+					}
+				}
+
+			}
+		}
+		return ResultPoly;
+	}
+
 	private: System::Void ContourEditorForm_Shown(System::Object^ sender, System::EventArgs^ e) {
 		KPT = new fteo::api::TMyContours();
 		fteo::firebird::Loader^ Ld = gcnew fteo::firebird::Loader();
+		fteo::api::TPoints* Points = Ld->LoadPoints(FteoDBHandle, this->Item_id)->API;
 		fteo::api::TDataRecords< fteo::api::TLayer>* Layers = Ld->LoadLayers(FteoDBHandle, this->Item_id);
 		fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords = Ld->LoadAreaRecords(FteoDBHandle, this->Item_id);
 		// let load and stress function:
@@ -752,6 +790,8 @@ private: void ListEditorData(netFteo::Spatial::TEntitySpatial^ editorData) {
 		delete(lst);
 		*/
 
+		netFteo::Spatial::TMyPolygon^ Polygon = BuildPolygon(Points, Layers, AreaRecords);
+		//netFteo::ObjectLister::ListEntSpat()
 		ListEditorData(Layers);
 		free(Layers);
 	}
