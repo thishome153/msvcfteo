@@ -60,6 +60,14 @@ namespace FteoDBForms
 	private: System::Windows::Forms::ColumnHeader^ columnHeader6;
 	private: System::Windows::Forms::ColumnHeader^ columnHeader7;
 	private: System::Windows::Forms::ColumnHeader^ columnHeader8;
+	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel1;
+	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel2;
+	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel3;
+	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel4;
+
+
+
+
 	public:		 int Item_id;
 
 	protected:
@@ -129,6 +137,10 @@ namespace FteoDBForms
 					L"Sub1"
 			}, -1));
 			this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
+			this->toolStripStatusLabel1 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
+			this->toolStripStatusLabel2 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
+			this->toolStripStatusLabel3 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
+			this->toolStripStatusLabel4 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ìåíþToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -173,6 +185,7 @@ namespace FteoDBForms
 			this->columnHeader6 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader7 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader8 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
@@ -184,11 +197,39 @@ namespace FteoDBForms
 			// statusStrip1
 			// 
 			this->statusStrip1->Enabled = false;
+			this->statusStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->toolStripStatusLabel1,
+					this->toolStripStatusLabel2, this->toolStripStatusLabel3, this->toolStripStatusLabel4
+			});
 			this->statusStrip1->Location = System::Drawing::Point(0, 583);
 			this->statusStrip1->Name = L"statusStrip1";
 			this->statusStrip1->Size = System::Drawing::Size(906, 22);
 			this->statusStrip1->TabIndex = 0;
 			this->statusStrip1->Text = L"statusStrip1";
+			// 
+			// toolStripStatusLabel1
+			// 
+			this->toolStripStatusLabel1->Name = L"toolStripStatusLabel1";
+			this->toolStripStatusLabel1->Size = System::Drawing::Size(118, 17);
+			this->toolStripStatusLabel1->Text = L"toolStripStatusLabel1";
+			// 
+			// toolStripStatusLabel2
+			// 
+			this->toolStripStatusLabel2->Name = L"toolStripStatusLabel2";
+			this->toolStripStatusLabel2->Size = System::Drawing::Size(118, 17);
+			this->toolStripStatusLabel2->Text = L"toolStripStatusLabel2";
+			// 
+			// toolStripStatusLabel3
+			// 
+			this->toolStripStatusLabel3->Name = L"toolStripStatusLabel3";
+			this->toolStripStatusLabel3->Size = System::Drawing::Size(118, 17);
+			this->toolStripStatusLabel3->Text = L"toolStripStatusLabel3";
+			// 
+			// toolStripStatusLabel4
+			// 
+			this->toolStripStatusLabel4->Name = L"toolStripStatusLabel4";
+			this->toolStripStatusLabel4->Size = System::Drawing::Size(118, 17);
+			this->toolStripStatusLabel4->Text = L"toolStripStatusLabel4";
 			// 
 			// menuStrip1
 			// 
@@ -226,7 +267,7 @@ namespace FteoDBForms
 			// 
 			this->ImportFteo_txt2015MenuItem->Enabled = false;
 			this->ImportFteo_txt2015MenuItem->Name = L"ImportFteo_txt2015MenuItem";
-			this->ImportFteo_txt2015MenuItem->Size = System::Drawing::Size(236, 22);
+			this->ImportFteo_txt2015MenuItem->Size = System::Drawing::Size(235, 22);
 			this->ImportFteo_txt2015MenuItem->Text = L"Òåêñòîâûé ôàéë NXYZD, 2015";
 			this->ImportFteo_txt2015MenuItem->Click += gcnew System::EventHandler(this, &ContourEditorForm::ImportFteo_txt2015MenuItem_Click);
 			// 
@@ -234,7 +275,7 @@ namespace FteoDBForms
 			// 
 			this->csvÔàéëTechnoCADToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"csvÔàéëTechnoCADToolStripMenuItem.Image")));
 			this->csvÔàéëTechnoCADToolStripMenuItem->Name = L"csvÔàéëTechnoCADToolStripMenuItem";
-			this->csvÔàéëTechnoCADToolStripMenuItem->Size = System::Drawing::Size(236, 22);
+			this->csvÔàéëTechnoCADToolStripMenuItem->Size = System::Drawing::Size(235, 22);
 			this->csvÔàéëTechnoCADToolStripMenuItem->Text = L"csv ôàéë (TechnoCAD)";
 			this->csvÔàéëTechnoCADToolStripMenuItem->Click += gcnew System::EventHandler(this, &ContourEditorForm::csvÔàéëTechnoCADToolStripMenuItem_Click);
 			// 
@@ -242,7 +283,7 @@ namespace FteoDBForms
 			// 
 			this->mifôàéëToolStripMenuItem1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"mifôàéëToolStripMenuItem1.Image")));
 			this->mifôàéëToolStripMenuItem1->Name = L"mifôàéëToolStripMenuItem1";
-			this->mifôàéëToolStripMenuItem1->Size = System::Drawing::Size(236, 22);
+			this->mifôàéëToolStripMenuItem1->Size = System::Drawing::Size(235, 22);
 			this->mifôàéëToolStripMenuItem1->Text = L"mif-ôàéë";
 			this->mifôàéëToolStripMenuItem1->Click += gcnew System::EventHandler(this, &ContourEditorForm::mifôàéëToolStripMenuItem1_Click);
 			// 
@@ -250,7 +291,7 @@ namespace FteoDBForms
 			// 
 			this->dxfToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"dxfToolStripMenuItem.Image")));
 			this->dxfToolStripMenuItem->Name = L"dxfToolStripMenuItem";
-			this->dxfToolStripMenuItem->Size = System::Drawing::Size(236, 22);
+			this->dxfToolStripMenuItem->Size = System::Drawing::Size(235, 22);
 			this->dxfToolStripMenuItem->Text = L"dxf-ôàéë";
 			this->dxfToolStripMenuItem->Click += gcnew System::EventHandler(this, &ContourEditorForm::dxfToolStripMenuItem_Click);
 			// 
@@ -268,7 +309,7 @@ namespace FteoDBForms
 					this->ïðîâåðèòüÏåðåñå÷åíèÿToolStripMenuItem, this->î÷èñòèòüToolStripMenuItem, this->toolStripSeparator1, this->ñâîéñòâàToolStripMenuItem
 			});
 			this->êÏÒToolStripMenuItem->Name = L"êÏÒToolStripMenuItem";
-			this->êÏÒToolStripMenuItem->Size = System::Drawing::Size(42, 20);
+			this->êÏÒToolStripMenuItem->Size = System::Drawing::Size(41, 20);
 			this->êÏÒToolStripMenuItem->Text = L"ÊÏÒ";
 			// 
 			// îòêðûòüToolStripMenuItem
@@ -478,7 +519,7 @@ namespace FteoDBForms
 			this->splitContainer1->Panel2->Controls->Add(this->treeView2);
 			this->splitContainer1->Panel2->Controls->Add(this->listView1);
 			this->splitContainer1->Size = System::Drawing::Size(906, 534);
-			this->splitContainer1->SplitterDistance = 302;
+			this->splitContainer1->SplitterDistance = 227;
 			this->splitContainer1->TabIndex = 7;
 			// 
 			// treeView1
@@ -488,8 +529,9 @@ namespace FteoDBForms
 				static_cast<System::Byte>(204)));
 			this->treeView1->Location = System::Drawing::Point(0, 0);
 			this->treeView1->Name = L"treeView1";
-			this->treeView1->Size = System::Drawing::Size(302, 534);
+			this->treeView1->Size = System::Drawing::Size(227, 534);
 			this->treeView1->TabIndex = 3;
+			this->treeView1->AfterSelect += gcnew System::Windows::Forms::TreeViewEventHandler(this, &ContourEditorForm::TreeView1_AfterSelect);
 			this->treeView1->NodeMouseClick += gcnew System::Windows::Forms::TreeNodeMouseClickEventHandler(this, &ContourEditorForm::TreeView1_NodeMouseClick);
 			// 
 			// treeView2
@@ -500,7 +542,7 @@ namespace FteoDBForms
 				static_cast<System::Byte>(204)));
 			this->treeView2->Location = System::Drawing::Point(0, 265);
 			this->treeView2->Name = L"treeView2";
-			this->treeView2->Size = System::Drawing::Size(600, 269);
+			this->treeView2->Size = System::Drawing::Size(675, 269);
 			this->treeView2->TabIndex = 8;
 			// 
 			// listView1
@@ -517,7 +559,7 @@ namespace FteoDBForms
 			this->listView1->Location = System::Drawing::Point(0, 0);
 			this->listView1->Name = L"listView1";
 			this->listView1->ShowItemToolTips = true;
-			this->listView1->Size = System::Drawing::Size(600, 534);
+			this->listView1->Size = System::Drawing::Size(675, 534);
 			this->listView1->TabIndex = 7;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
@@ -535,6 +577,8 @@ namespace FteoDBForms
 			this->Name = L"ContourEditorForm";
 			this->Text = L"Ðåäàêòîð êîíòóðîâ";
 			this->Shown += gcnew System::EventHandler(this, &ContourEditorForm::ContourEditorForm_Shown);
+			this->statusStrip1->ResumeLayout(false);
+			this->statusStrip1->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->toolStrip1->ResumeLayout(false);
@@ -982,7 +1026,7 @@ namespace FteoDBForms
 	private: System::Void ListSelectedNode(TreeNode^ STrN)
 	{
 		//if (STrN == NULL) return;
-		//toolStripStatusLabel2.Text = STrN.Name;
+		toolStripStatusLabel1->Text = STrN->Name;
 		//clear items in any case:
 		listView1->Items->Clear();
 		listView1->Controls->Clear();
@@ -996,6 +1040,18 @@ namespace FteoDBForms
 		{
 
 			netFteo::Spatial::IGeometry^ Entity = (netFteo::Spatial::IGeometry^)ES;
+			if (Entity->TypeName == "netFteo.Spatial.TEntitySpatial")
+			{
+				//GeometryToSpatialView(listView1, Entity);
+				Entity->ShowasListItems(listView1, true); //"netFteo.Spatial.TEntitySpatial"
+				//PropertiesToListView(listView_Properties, Entity);
+			}
+		}
+
+		
+		if (STrN->Name->Contains("SPElem."))
+		{
+			netFteo::Spatial::IGeometry^ Entity = (netFteo::Spatial::IGeometry^)ES;
 			if (Entity)
 			{
 				//GeometryToSpatialView(listView1, Entity);
@@ -1008,5 +1064,8 @@ namespace FteoDBForms
 	private: System::Void TreeView1_NodeMouseClick(System::Object^ sender, System::Windows::Forms::TreeNodeMouseClickEventArgs^ e) {
 		ListSelectedNode(e->Node);
 	}
+private: System::Void TreeView1_AfterSelect(System::Object^ sender, System::Windows::Forms::TreeViewEventArgs^ e) {
+	ListSelectedNode(e->Node);
+}
 };
 }
