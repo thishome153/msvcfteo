@@ -37,7 +37,9 @@ namespace FteoDBForms
 			//
 			//TODO: Add the constructor code here
 			//
+			ESwindow = gcnew netFteo::Windows::MyWindowEx();
 		}
+
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton5;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ dxfToolStripMenuItem1;
@@ -47,6 +49,8 @@ namespace FteoDBForms
 	public:
 		fteo::api::TMyContours* EditorData; //×òî îòîáðàæàåò è ñ ÷åì ðàáîòàåò ContourEditor.
 		netFteo::Spatial::TEntitySpatial^ ES; // Also with NET
+		netFteo::Windows::MyWindowEx^ ESwindow;
+		netFteo::EntityViewer^ ViewWindow; // xaml WPF control
 	private: System::Windows::Forms::SplitContainer^ splitContainer1;
 	public:
 	private: System::Windows::Forms::TreeView^ treeView1;
@@ -64,6 +68,9 @@ namespace FteoDBForms
 	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel2;
 	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel3;
 	private: System::Windows::Forms::ToolStripStatusLabel^ toolStripStatusLabel4;
+	private: System::Windows::Forms::ToolStripMenuItem^ âèäToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMI_ShowES;
+
 
 
 
@@ -160,6 +167,8 @@ namespace FteoDBForms
 			this->ñâîéñòâàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuItem_KPT_Prop_Poly = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->MenuItem_KPT_Prop_Points = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âèäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->toolStripMI_ShowES = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ïîìîùüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
@@ -233,9 +242,9 @@ namespace FteoDBForms
 			// 
 			// menuStrip1
 			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->ìåíþToolStripMenuItem,
-					this->êÏÒToolStripMenuItem, this->ïîìîùüToolStripMenuItem
+					this->êÏÒToolStripMenuItem, this->âèäToolStripMenuItem, this->ïîìîùüToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -393,6 +402,21 @@ namespace FteoDBForms
 			this->MenuItem_KPT_Prop_Points->Size = System::Drawing::Size(136, 22);
 			this->MenuItem_KPT_Prop_Points->Text = L"Òî÷åê";
 			// 
+			// âèäToolStripMenuItem
+			// 
+			this->âèäToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->toolStripMI_ShowES });
+			this->âèäToolStripMenuItem->Name = L"âèäToolStripMenuItem";
+			this->âèäToolStripMenuItem->Size = System::Drawing::Size(39, 20);
+			this->âèäToolStripMenuItem->Text = L"Âèä";
+			// 
+			// toolStripMI_ShowES
+			// 
+			this->toolStripMI_ShowES->CheckOnClick = true;
+			this->toolStripMI_ShowES->Name = L"toolStripMI_ShowES";
+			this->toolStripMI_ShowES->Size = System::Drawing::Size(180, 22);
+			this->toolStripMI_ShowES->Text = L"Ïðîñìîòð";
+			this->toolStripMI_ShowES->Click += gcnew System::EventHandler(this, &ContourEditorForm::ToolStripMI_ShowES_Click);
+			// 
 			// ïîìîùüToolStripMenuItem
 			// 
 			this->ïîìîùüToolStripMenuItem->Name = L"ïîìîùüToolStripMenuItem";
@@ -547,14 +571,18 @@ namespace FteoDBForms
 			// 
 			// listView1
 			// 
+			this->listView1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(8) {
 				this->columnHeader1, this->columnHeader2,
 					this->columnHeader3, this->columnHeader4, this->columnHeader5, this->columnHeader6, this->columnHeader7, this->columnHeader8
 			});
 			this->listView1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->listView1->ForeColor = System::Drawing::SystemColors::MenuHighlight;
+			this->listView1->FullRowSelect = true;
 			this->listView1->GridLines = true;
 			this->listView1->HeaderStyle = System::Windows::Forms::ColumnHeaderStyle::Nonclickable;
 			this->listView1->HideSelection = false;
+			listViewItem1->StateImageIndex = 0;
 			this->listView1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(1) { listViewItem1 });
 			this->listView1->Location = System::Drawing::Point(0, 0);
 			this->listView1->Name = L"listView1";
@@ -563,6 +591,34 @@ namespace FteoDBForms
 			this->listView1->TabIndex = 7;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
+			// 
+			// columnHeader1
+			// 
+			this->columnHeader1->Width = 78;
+			// 
+			// columnHeader2
+			// 
+			this->columnHeader2->Width = 119;
+			// 
+			// columnHeader3
+			// 
+			this->columnHeader3->Width = 96;
+			// 
+			// columnHeader4
+			// 
+			this->columnHeader4->Width = 118;
+			// 
+			// columnHeader5
+			// 
+			this->columnHeader5->Width = 94;
+			// 
+			// columnHeader6
+			// 
+			this->columnHeader6->Width = 84;
+			// 
+			// columnHeader7
+			// 
+			this->columnHeader7->Width = 81;
 			// 
 			// ContourEditorForm
 			// 
@@ -905,7 +961,7 @@ namespace FteoDBForms
 		return ES;
 	}
 
-	private: netFteo::Spatial::TMyPolygon^ BuildPolygon(int Feature_id,fteo::api::TPoints* SourcePoints, fteo::api::TDataRecords< fteo::api::TLayer>* Layers, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
+	private: netFteo::Spatial::TMyPolygon^ BuildPolygon(int Feature_id, fteo::api::TPoints* SourcePoints, fteo::api::TDataRecords< fteo::api::TLayer>* Layers, fteo::api::TDataRecords< fteo::api::TAreaRecord>* AreaRecords)
 	{
 		netFteo::Spatial::TMyPolygon^ ResultPoly = gcnew netFteo::Spatial::TMyPolygon();
 
@@ -1011,6 +1067,7 @@ namespace FteoDBForms
 	}
 	private: System::Void toolStripButton6_Click(System::Object^ sender, System::EventArgs^ e) {
 
+		Toggle_Visualizer();
 		/*
 			  toolStripButton6->Enabled = false;
 			  fteo::Win32xx::CViewerApp2 MyView;// = new  fteo::Win32xx::CViewerApp();
@@ -1022,6 +1079,64 @@ namespace FteoDBForms
 
 	}
 
+	private: System::Void Toggle_Visualizer()
+	{
+
+		if (toolStripMI_ShowES->Checked)
+		{
+			ESwindow->Hide();
+			toolStripMI_ShowES->Checked = false;
+			//toolStripButton_VisualizerToggle.Checked = false;
+			//ïðîñìîòðToolStripMenuItem.Checked = false;
+			return;
+		}
+
+
+		ESwindow->Title = "Âèçóàëèçàöèÿ ÏÄ (WPF)";
+		ViewWindow = gcnew netFteo::EntityViewer();
+		ViewWindow->Definition = "Viewer Created ok";
+		ESwindow->Content = ViewWindow;
+		ESwindow->MinHeight = 300; ESwindow->MinWidth = 500;
+		ESwindow->Height = this->Height;  //576 ? just added to have a smaller control (Window)
+		ESwindow->Width = 810;
+
+		ESwindow->Top = this->Top; ESwindow->Left = this->Left + 1 + this->Width;
+		ESwindow->Show();// ShowDialog();
+						// checkonClick = true òîãäà íå íóæíî ýòî: 
+		toolStripMI_ShowES->Checked = true;
+		//toolStripButton_VisualizerToggle.Checked = true;
+		//ïðîñìîòðToolStripMenuItem.Checked = true;
+
+		/*
+		if (TV_Parcels.SelectedNode != null)
+			if (TV_Parcels.SelectedNode.Name.Contains("SPElem."))
+			{
+				ListSelectedNode(TV_Parcels.SelectedNode);
+			}
+		*/
+	}
+
+
+
+	private: System::Void GeometryToSpatialView(ListView^ LV, netFteo::Spatial::IGeometry^ Feature)
+	{
+		/*
+		if (Feature)
+		{
+			if (! ViewWindow ) ViewWindow->Spatial = NULL; // ñîòðåì êàðòèíêó (ïîñëåäíþþ)
+			return;
+		}
+		*/
+
+		// Visualizer check:
+		if (toolStripMI_ShowES->Checked)
+		{
+			ViewWindow->Spatial = Feature;
+			//ViewWindow.label2.Content = poly.Definition;
+			ViewWindow->BringIntoView();
+			ViewWindow->CreateView(Feature);
+		}
+	}
 
 	private: System::Void ListSelectedNode(TreeNode^ STrN)
 	{
@@ -1036,9 +1151,9 @@ namespace FteoDBForms
 		//listView_Properties.Controls.Clear();
 		//GeometryToSpatialView(listView1, null);
 
-	//	if (STrN->Name->Contains("ES."))
-		{
 
+		if (STrN->Name->Contains("ES."))
+		{
 			netFteo::Spatial::IGeometry^ Entity = (netFteo::Spatial::IGeometry^)ES;
 			if (Entity->TypeName == "netFteo.Spatial.TEntitySpatial")
 			{
@@ -1048,13 +1163,15 @@ namespace FteoDBForms
 			}
 		}
 
-		
+
 		if (STrN->Name->Contains("SPElem."))
 		{
-			netFteo::Spatial::IGeometry^ Entity = (netFteo::Spatial::IGeometry^)ES;
+			std::string::size_type sz;   // alias of size_t
+
+			netFteo::Spatial::IGeometry^ Entity = (netFteo::Spatial::IGeometry^)ES->GetFeature(Convert::ToInt32(STrN->Name->Substring(7)));
 			if (Entity)
 			{
-				//GeometryToSpatialView(listView1, Entity);
+				GeometryToSpatialView(listView1, Entity);
 				Entity->ShowasListItems(listView1, true);
 				//PropertiesToListView(listView_Properties, Entity);
 			}
@@ -1064,8 +1181,11 @@ namespace FteoDBForms
 	private: System::Void TreeView1_NodeMouseClick(System::Object^ sender, System::Windows::Forms::TreeNodeMouseClickEventArgs^ e) {
 		ListSelectedNode(e->Node);
 	}
-private: System::Void TreeView1_AfterSelect(System::Object^ sender, System::Windows::Forms::TreeViewEventArgs^ e) {
-	ListSelectedNode(e->Node);
-}
+	private: System::Void TreeView1_AfterSelect(System::Object^ sender, System::Windows::Forms::TreeViewEventArgs^ e) {
+		ListSelectedNode(e->Node);
+	}
+	private: System::Void ToolStripMI_ShowES_Click(System::Object^ sender, System::EventArgs^ e) {
+		Toggle_Visualizer();
+	}
 };
 }

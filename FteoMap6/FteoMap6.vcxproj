@@ -324,6 +324,8 @@
     <Reference Include="netFteo">
       <HintPath>..\contrib.NET\x86\Debug\netFteo.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="RosreestrTypes">
       <HintPath>..\contrib.NET\x86\Debug\RosreestrTypes.dll</HintPath>
     </Reference>
@@ -343,10 +345,12 @@
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml">
       <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Fixosoft-SDK\dxflib\dl_dxf.cpp" />
