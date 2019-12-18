@@ -23,7 +23,8 @@ SAMPLEDLL_EXPORTS extern "C"
 	 // void* vr =  FILEVERSION;
 	  return 100265;
   }
-
+  
+  
   DLL_EXPORTABLE void *Func2(int value_id)
   {
      char *Test = "Here Pointer";

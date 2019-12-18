@@ -107,13 +107,13 @@
     <IncludePath>include;$(SolutionDir)..\Fixosoft-SDK\cpl;$(SolutionDir)..\Fixosoft-SDK\dxflib;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\win32++;$(SolutionDir)..\mitab-1.7.0\mitab\;$(SolutionDir)..\Firebird-ibpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release WinXP|Win32'">
-    <OutDir>C:\Program Files\Fixosoft\fteo\msvc\$(Configuration)\</OutDir>
+    <OutDir>\\10.66.77.4\Obmen\SOFT\Fixosoft\fteo\msvc\WinXP\</OutDir>
     <IntDir>C:\Program Files\Fixosoft\fteo\msvc\tmp\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
     <CodeAnalysisRuleAssemblies />
-    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\lib\;$(Solutiondir)..\Firebird-ibpp\$(Configuration)\;$(SolutionDir)..\mitab-1.7.0\$(Configuration)\;$(Solutiondir)..\Fixosoft-SDK\lib\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(Solutiondir)..\Firebird-ibpp\lib\;$(Solutiondir)..\Firebird-ibpp\Release;$(SolutionDir)..\mitab-1.7.0\Release;$(Solutiondir)..\Fixosoft-SDK\lib\Release;$(LibraryPath)</LibraryPath>
     <IncludePath>include;$(SolutionDir)..\Fixosoft-SDK\cpl;$(SolutionDir)..\Fixosoft-SDK\dxflib;$(SolutionDir)..\Fixosoft-SDK\fteo\fteoNET;$(SolutionDir)..\Fixosoft-SDK\fteo\include;$(SolutionDir)..\Fixosoft-SDK\fteo\win32++;$(SolutionDir)..\mitab-1.7.0\mitab\;$(SolutionDir)..\Firebird-ibpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
