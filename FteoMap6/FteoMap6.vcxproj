@@ -322,7 +322,7 @@
       <HintPath>..\contrib.NET\x86\Debug\cspWrapper.dll</HintPath>
     </Reference>
     <Reference Include="netFteo">
-      <HintPath>..\contrib.NET\x86\Debug\netFteo.dll</HintPath>
+      <HintPath>..\..\RRStudio\Builds\x86\Debug\netFteo.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

@@ -649,7 +649,10 @@ namespace FteoDBForms
 			{
 				fteo::NET::wr_TMyPoint^ point = Points->GetPointbyIndex(pt);
 				if (point->API)
-				PointsNet->AddPoint(point->Name, point->x, point->y, fteo::NET::CharToString(point->API->Description));
+				{
+					netFteo::Spatial::TPoint^ LastPoint = PointsNet->AddPoint(point->Name, point->x, point->y, fteo::NET::CharToString(point->API->Description));
+					LastPoint->z = point->z;
+				}
 			}
 			ES->Add(PointsNet);
 			TwrNET->SaveAsFixosoftTXT2018(saveFileDialog1->FileName, ES, System::Text::Encoding::Unicode);
